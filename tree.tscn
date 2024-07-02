@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://kd3nv0o7u06f"]
+
+[ext_resource type="Texture2D" uid="uid://co2onxo38hxy2" path="res://tree_placeholder.png" id="1_6uab3"]
+[ext_resource type="Script" path="res://tree.gd" id="1_iu674"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_baeno"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pwuin"]
+radius = 135.015
+
+[node name="Tree" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_iu674")
+
+[node name="Base" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_baeno")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_6uab3")
+
+[node name="RangeArea" type="Area2D" parent="."]
+visible = false
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="RangeArea"]
+visible = false
+shape = SubResource("CircleShape2D_pwuin")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
