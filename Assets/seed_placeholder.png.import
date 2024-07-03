@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j0m3jmrhfif3"
-path="res://.godot/imported/rabbit_placeholder.png-f2718daf0b07afc7b931cfe5a8ac509e.ctex"
+uid="uid://1fx0hkcs4efj"
+path="res://.godot/imported/seed_placeholder.png-20e40d750950b424c8cb8305299a31c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rabbit_placeholder.png"
-dest_files=["res://.godot/imported/rabbit_placeholder.png-f2718daf0b07afc7b931cfe5a8ac509e.ctex"]
+source_file="res://Assets/seed_placeholder.png"
+dest_files=["res://.godot/imported/seed_placeholder.png-20e40d750950b424c8cb8305299a31c6.ctex"]
 
 [params]
 

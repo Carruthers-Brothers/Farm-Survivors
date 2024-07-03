@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://gcjic263ikf6"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_mpwcj"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_mpwcj"]
 [ext_resource type="Texture2D" uid="uid://c6xi2kbuf2ctb" path="res://Sprout Lands Graphics/Tilesets/Tilled_Dirt.png" id="1_nqolc"]
 [ext_resource type="Texture2D" uid="uid://dobdlognq1hsx" path="res://Sprout Lands Graphics/Tilesets/Water.png" id="2_8tfef"]
 [ext_resource type="Texture2D" uid="uid://cj41exrivaoo5" path="res://Sprout Lands Graphics/Tilesets/Wooden House.png" id="3_cmu72"]
@@ -645,6 +645,7 @@ offset_bottom = 40.0
 
 [node name="StartButton" type="Button" parent="Control"]
 texture_filter = 2
+layout_mode = 0
 offset_left = 492.0
 offset_top = 314.0
 offset_right = 1792.0
@@ -655,6 +656,7 @@ theme_override_font_sizes/font_size = 200
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 492.0
 offset_top = 398.0
 offset_right = 1792.0
@@ -665,6 +667,7 @@ theme_override_font_sizes/font_size = 200
 text = "Quit"
 
 [node name="Label" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 425.0
 offset_top = 226.0
 offset_right = 5752.0

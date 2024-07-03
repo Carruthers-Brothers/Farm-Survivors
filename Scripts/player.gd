@@ -1,15 +1,29 @@
 extends CharacterBody2D
 
-var speed = 100
-
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var hurtbox = $Hurtbox
+@onready var health_bar = $HealthBar
+@onready var seed_cooldown = $SeedCooldown
+@onready var game = get_tree().get_first_node_in_group("game")
+
+const SEED = preload("res://Scenes/seed.tscn")
 
 var previous_direction = "down" # save previous direction for idle animations after stop moving
 var health = 100
+var speed = 100
+var plantable = true
+
+signal player_death
 
 func _physics_process(delta):
 
+	
+	# seed planting
+	if Input.is_action_just_pressed("plant"):
+		plant_seed()
+
+
+	# movement and animations
 	var direction = Input.get_vector("left", "right", "up", "down") # Input map set for directions in Project->Project Settings->Input Map
 	velocity = direction * speed
 	
@@ -38,15 +52,26 @@ func _physics_process(delta):
 			"down":
 				animated_sprite_2d.play("idle_down")
 	
-	move_and_slide()
+	move_and_slide() # moves character based on its velocity
 	
-	# taking damage
-	var damage = 50
-	var enemy_collisions = hurtbox.get_overlapping_areas()
-	var num_enemies = enemy_collisions.size()
-	if  num_enemies > 0:
-		health -= damage * num_enemies * delta
+	# take damage from enemies
+	var enemy_areas = hurtbox.get_overlapping_areas()
+	for area in enemy_areas: 
+		var enemy = area.get_parent()
+		health -= enemy.damage_dealt * delta # if enemies deal different amounts of damage
+		health_bar.value = health
 		if health <= 0:
-			print("game over")
-			get_tree().quit() # exit on death for now
-	
+			emit_signal("player_death") 
+
+
+func plant_seed():
+	if plantable:
+		plantable = false
+		seed_cooldown.start() # seed planted, start cooldown before can plant again
+		var new_seed = SEED.instantiate()
+		new_seed.global_position = global_position # plant where player is
+		game.add_child(new_seed) # add seed to Game scene
+
+
+func _on_seed_cooldown_timeout():
+	plantable = true # able to plant another seed

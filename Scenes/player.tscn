@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgaio6m6yxgwr"]
+[gd_scene load_steps=24 format=3 uid="uid://bgaio6m6yxgwr"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_q8d2a"]
-[ext_resource type="PackedScene" uid="uid://chea2tu3h7v1a" path="res://pause_menu.tscn" id="2_171xr"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_q8d2a"]
 [ext_resource type="Texture2D" uid="uid://cceq8n3h08u3c" path="res://Sprout Lands Graphics/Characters/Basic Charakter Spritesheet.png" id="2_r7qwx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rg4bg"]
@@ -159,22 +158,74 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mlciv"]
+radius = 7.0
+height = 16.2002
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55ig3"]
 radius = 5.0
 height = 14.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qxmd"]
+size = Vector2(640, 426.694)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shjd0"]
+size = Vector2(514, 303.337)
+
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+scale = Vector2(1, 0.989)
+collision_mask = 2
+platform_floor_layers = 4294967040
 script = ExtResource("1_q8d2a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="PauseMenu" parent="." instance=ExtResource("2_171xr")]
+zoom = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0vk5d")
 animation = &"idle_down"
 autoplay = "idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_mlciv")
+disabled = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 1)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_55ig3")
+debug_color = Color(0.997834, 0, 0.156924, 0.42)
+
+[node name="SpawnZone" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 0
+
+[node name="OuterZone" type="CollisionShape2D" parent="SpawnZone"]
+shape = SubResource("RectangleShape2D_7qxmd")
+
+[node name="InnerZone" type="CollisionShape2D" parent="SpawnZone"]
+position = Vector2(0, -1.01112)
+shape = SubResource("RectangleShape2D_shjd0")
+debug_color = Color(0.9991, 0, 0.123611, 0.42)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(5.29438e-06, 0.826263, 0.157013, 1)
+self_modulate = Color(0, 0.894899, 0.540627, 1)
+offset_left = -11.0
+offset_top = -13.1446
+offset_right = 11.0
+offset_bottom = -9.14459
+value = 100.0
+show_percentage = false
+
+[node name="SeedCooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="SeedCooldown" to="." method="_on_seed_cooldown_timeout"]

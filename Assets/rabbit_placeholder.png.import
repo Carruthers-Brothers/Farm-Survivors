@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bow2v8hxm57w5"
-path="res://.godot/imported/apple_placeholder.png-e7fbca1f969b518419b19892ff1b9883.ctex"
+uid="uid://c3hlnivgbpon"
+path="res://.godot/imported/rabbit_placeholder.png-78fd492351c2b44f157c7e4d593f99cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://apple_placeholder.png"
-dest_files=["res://.godot/imported/apple_placeholder.png-e7fbca1f969b518419b19892ff1b9883.ctex"]
+source_file="res://Assets/rabbit_placeholder.png"
+dest_files=["res://.godot/imported/rabbit_placeholder.png-78fd492351c2b44f157c7e4d593f99cc.ctex"]
 
 [params]
 

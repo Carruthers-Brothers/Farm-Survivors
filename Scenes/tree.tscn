@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://kd3nv0o7u06f"]
 
-[ext_resource type="Texture2D" uid="uid://co2onxo38hxy2" path="res://tree_placeholder.png" id="1_6uab3"]
-[ext_resource type="Script" path="res://tree.gd" id="1_iu674"]
+[ext_resource type="Script" path="res://Scripts/tree.gd" id="1_iu674"]
+[ext_resource type="Texture2D" uid="uid://cgn31c81ifkrx" path="res://Assets/tree_placeholder.png" id="2_v75a2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_baeno"]
 radius = 9.0
@@ -10,6 +10,7 @@ radius = 9.0
 radius = 135.015
 
 [node name="Tree" type="StaticBody2D"]
+top_level = true
 y_sort_enabled = true
 script = ExtResource("1_iu674")
 
@@ -22,10 +23,11 @@ position = Vector2(0, -13)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_6uab3")
+texture = ExtResource("2_v75a2")
 
 [node name="RangeArea" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
 collision_mask = 2
 
 [node name="Range" type="CollisionShape2D" parent="RangeArea"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://de16yrwxesj6o"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_wpwt0"]
+[ext_resource type="PackedScene" uid="uid://bgaio6m6yxgwr" path="res://Scenes/player.tscn" id="3_iflxp"]
+[ext_resource type="PackedScene" uid="uid://cdvfuu1hpjn3b" path="res://Scenes/enemy.tscn" id="4_05vr8"]
+[ext_resource type="PackedScene" uid="uid://dko7aglao6gjw" path="res://Scenes/main_ui.tscn" id="4_lousv"]
+[ext_resource type="Texture2D" uid="uid://depeejheankm0" path="res://Assets/grass_placeholder.jpg" id="4_opyqe"]
+[ext_resource type="PackedScene" uid="uid://kd3nv0o7u06f" path="res://Scenes/tree.tscn" id="5_4iydv"]
+[ext_resource type="PackedScene" uid="uid://cocp6168xqrcb" path="res://Scenes/death_menu.tscn" id="5_t8sce"]
+[ext_resource type="PackedScene" uid="uid://c41g2o44k0bnb" path="res://Scenes/pause_menu.tscn" id="7_isgbb"]
+
+[node name="Game" type="Node2D" groups=["game"]]
+script = ExtResource("1_wpwt0")
+
+[node name="Player" parent="." instance=ExtResource("3_iflxp")]
+
+[node name="Parallax" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax"]
+position = Vector2(-40, -12)
+motion_mirroring = Vector2(540, 360)
+
+[node name="Grass" type="Sprite2D" parent="Parallax/ParallaxLayer"]
+texture = ExtResource("4_opyqe")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUI" parent="CanvasLayer" instance=ExtResource("4_lousv")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_isgbb")]
+
+[node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("5_t8sce")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_05vr8")]
+position = Vector2(125, 38)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_05vr8")]
+position = Vector2(-143, 59)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_05vr8")]
+position = Vector2(154, -64)
+
+[node name="Enemy4" parent="." instance=ExtResource("4_05vr8")]
+position = Vector2(-209, -105)
+
+[node name="Enemy5" parent="." instance=ExtResource("4_05vr8")]
+position = Vector2(-53, -133)
+
+[node name="Tree" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(-90, -80)
+
+[connection signal="player_death" from="Player" to="." method="_on_player_player_death"]

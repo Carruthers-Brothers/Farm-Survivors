@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://78msxeeg0rj8"
-path="res://.godot/imported/grass.jpg-4ca37d76c8b391a7e96ec05260cb4207.ctex"
+uid="uid://bjnvcitpfbu7s"
+path="res://.godot/imported/seed_progress.png-62fb02eef5e3a5c644859787de276595.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grass.jpg"
-dest_files=["res://.godot/imported/grass.jpg-4ca37d76c8b391a7e96ec05260cb4207.ctex"]
+source_file="res://Assets/seed_progress.png"
+dest_files=["res://.godot/imported/seed_progress.png-62fb02eef5e3a5c644859787de276595.ctex"]
 
 [params]
 

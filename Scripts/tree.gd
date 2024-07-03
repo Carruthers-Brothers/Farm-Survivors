@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var range_area = $RangeArea
-const APPLE = preload("res://apple.tscn")
+const APPLE = preload("res://Scenes/apple.tscn")
 @onready var tree = $"."
 @onready var marker_2d = $Marker2D
 var target
@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	var enemies_in_range = range_area.get_overlapping_areas()
 	if enemies_in_range.size() > 0:
 		target = enemies_in_range.front()
