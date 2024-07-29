@@ -1,0 +1,32 @@
+{
+	"waves" : [
+		{
+			1 : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				}
+			],
+		},
+		{
+			2 : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+			],
+		}
+	]
+}

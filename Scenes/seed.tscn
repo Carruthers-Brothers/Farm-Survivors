@@ -13,7 +13,7 @@ scale = Vector2(0.060606, 0.0606061)
 texture = ExtResource("1_yvvyn")
 
 [node name="GrowthTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 5.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

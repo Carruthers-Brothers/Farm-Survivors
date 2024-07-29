@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://pufx1ujejf75"]
+
+[ext_resource type="Script" path="res://Scripts/EnemySpawner.gd" id="1_wam8i"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_wam8i")
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="ChunkTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_timer_timeout"]

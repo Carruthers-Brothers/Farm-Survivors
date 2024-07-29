@@ -8,50 +8,44 @@ extends CharacterBody2D
 
 const SEED = preload("res://Scenes/seed.tscn")
 
-var previous_direction = "down" # save previous direction for idle animations after stop moving
+var previous_direction = "right" # save previous direction for idle animations after stop moving
 var health = 100
 var speed = 100
 var plantable = true
 
 signal player_death
 
+
 func _physics_process(delta):
 
-	
 	# seed planting
 	if Input.is_action_just_pressed("plant"):
 		plant_seed()
-
 
 	# movement and animations
 	var direction = Input.get_vector("left", "right", "up", "down") # Input map set for directions in Project->Project Settings->Input Map
 	velocity = direction * speed
 	
-	match direction: # play walk animation in the direction we are traveling
-		Vector2(-1, 0):
-			animated_sprite_2d.play("walk_left")
-			previous_direction = "left"
-		Vector2(1, 0):
-			animated_sprite_2d.play("walk_right")
-			previous_direction = "right"
-		Vector2(0, -1):
-			animated_sprite_2d.play("walk_up")
-			previous_direction = "up"
-		Vector2(0, 1):
-			animated_sprite_2d.play("walk_down")
-			previous_direction = "down"
+	# walking animations
+	if direction.x < 0: 
+		animated_sprite_2d.play("walk")
+		animated_sprite_2d.flip_h = true
+		previous_direction = "left"
+	elif direction.x > 0:
+		animated_sprite_2d.play("walk")
+		animated_sprite_2d.flip_h = false
+		previous_direction = "right"
+	else: # if walking up or down, still play walk animation in direction you were facing before
+		if previous_direction == "right":
+			animated_sprite_2d.play("walk")
+			animated_sprite_2d.flip_h = false
+		else:
+			animated_sprite_2d.play("walk")
+			animated_sprite_2d.flip_h = true
 	
-	if velocity.length() == 0: # if player is not moving
-		match previous_direction: # find last direction we traveled in so we are idle in that direction
-			"left":
-				animated_sprite_2d.play("idle_left")
-			"right":
-				animated_sprite_2d.play("idle_right")
-			"up":
-				animated_sprite_2d.play("idle_up")
-			"down":
-				animated_sprite_2d.play("idle_down")
-	
+	if velocity.length() == 0: # not moving
+		animated_sprite_2d.play("idle")
+
 	move_and_slide() # moves character based on its velocity
 	
 	# take damage from enemies
