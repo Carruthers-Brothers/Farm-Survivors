@@ -6,14 +6,19 @@ extends Node2D
 @onready var seed_cooldown = $Player/SeedCooldown
 @onready var time_label = $CanvasLayer/MainUI/Time
 
-
 var time_elapsed = 0.0
+
 
 func _process(delta):
 	seed_progress.value = 10 - seed_cooldown.time_left 
-	if not get_tree().paused:
-		time_elapsed += delta
-		time_label.text = str(time_elapsed).pad_decimals(2) # change to have minutes / seconds format
+	time_elapsed += delta
+	# formatted timer text
+	var minutes = int(time_elapsed) / 60
+	var seconds = int(time_elapsed) % 60
+	if seconds < 10:
+		time_label.text = "0" + str(minutes) + ":0" + str(seconds) 
+	else:
+		time_label.text = "0" + str(minutes) + ":" + str(seconds)
 
 
 func _on_player_player_death():

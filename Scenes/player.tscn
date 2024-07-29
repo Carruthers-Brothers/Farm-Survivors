@@ -261,7 +261,7 @@ value = 100.0
 show_percentage = false
 
 [node name="SeedCooldown" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [node name="Scythe" parent="." instance=ExtResource("4_c6wa5")]

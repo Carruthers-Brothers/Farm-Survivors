@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var speed = 50 # half of player speed
-var damage_dealt = 20
-var health = 20
+var speed
+var damage_dealt
+var health
 
 @onready var player = get_node("/root/Game/Player")
 @onready var animated_sprite_2d = $AnimatedSprite2D

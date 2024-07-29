@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cdvfuu1hpjn3b"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_mq83e"]
+[ext_resource type="Script" path="res://Scripts/Enemies/bunny.gd" id="1_3itme"]
 [ext_resource type="Texture2D" uid="uid://bk60jlbqjojq8" path="res://Assets/Piff_Spritesheet.png" id="2_4csfd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3h3d0"]
@@ -102,7 +102,7 @@ height = 18.0
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 platform_floor_layers = 4294967040
-script = ExtResource("1_mq83e")
+script = ExtResource("1_3itme")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 2
