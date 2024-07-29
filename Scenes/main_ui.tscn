@@ -42,3 +42,15 @@ offset_right = 1822.0
 offset_bottom = 207.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press \"E\" to plant"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 61.0
+offset_right = 288.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1

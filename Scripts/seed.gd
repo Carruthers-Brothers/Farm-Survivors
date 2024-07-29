@@ -12,7 +12,7 @@ func _ready():
 	growth_timer.start()
 	
 
-func _process(delta):
+func _process(_delta):
 	texture_progress_bar.value = 20 - growth_timer.time_left
 
 func _on_growth_timer_timeout():

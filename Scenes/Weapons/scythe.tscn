@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://61aanuwcokph"]
+
+[ext_resource type="Texture2D" uid="uid://c3q5qub1k1gd4" path="res://Assets/scythe_placeholder.png" id="1_ejnj0"]
+[ext_resource type="Script" path="res://Scripts/Weapons/scythe.gd" id="1_ygqh8"]
+
+[node name="Scythe" type="Marker2D"]
+script = ExtResource("1_ygqh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-35, -31)
+scale = Vector2(0.116667, 0.116667)
+texture = ExtResource("1_ejnj0")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-25, -21, -40, -33, -42, -32, -40, -39, -35, -42, -29, -42, -34, -41, -37, -39, -39, -35, -38, -33, -24, -22, -23, -22, -24, -21)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

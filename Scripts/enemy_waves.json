@@ -1,0 +1,124 @@
+{
+	"waves" : [
+		{
+			"1" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				}
+			]
+		},
+		{
+			"2" : [
+				{
+					"enemy" : "bunny",
+					"count" : 1
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 1
+				},
+				{
+					"enemy" : "bunny",
+					"count" : 1
+				},
+			]
+		},
+		{
+			"3" : [
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"4" : [
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"5" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"6" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"7" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"8" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"9" : [
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"10" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"11" : [
+				{
+					"enemy" : "bunny",
+					"count" : 1
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 1
+				},
+			]
+		},
+		{
+			"12" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+			]
+		},
+	]
+}
