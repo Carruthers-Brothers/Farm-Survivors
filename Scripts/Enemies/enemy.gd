@@ -12,15 +12,16 @@ var health
 const SEED = preload("res://Scenes/seed.tscn")
 
 func _physics_process(_delta):
-	var direction = global_position.direction_to(player.global_position)
+	var target = getTarget()
+	var direction = global_position.direction_to(target.global_position)
 	velocity = speed * direction
 	
-	if direction.x > 0: # change to be position relative to player
+	if direction.x > 0: # change to be position relative to target
 		animated_sprite_2d.flip_h = false # traveling right, don't flip
 	else:
 		animated_sprite_2d.flip_h = true # traveling left, flip
 	
-	if global_position.distance_to(player.global_position) > 0.5: # so it doesn't flip back and forth rapidly on player
+	if global_position.distance_to(target.global_position) > 0.5: # so it doesn't flip back and forth rapidly on target
 		move_and_slide() # move and slide accounts for delta time
 	
 
@@ -40,9 +41,14 @@ func take_damage(damage):
 		elif num <= 20:
 			create_seed("Common")
 		queue_free()
+		
+func getTarget():
+	return player
+
 
 func create_seed(seed_type):
 	var seed = SEED.instantiate()
 	seed.global_position = global_position
 	game.add_child(seed)
 	seed.set_type(seed_type)
+

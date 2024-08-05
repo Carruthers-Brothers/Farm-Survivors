@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://de16yrwxesj6o"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_wpwt0"]
-[ext_resource type="PackedScene" uid="uid://pufx1ujejf75" path="res://Scenes/enemy_spawner.tscn" id="2_al4gj"]
+[ext_resource type="PackedScene" uid="uid://bd8lgm0cmd25g" path="res://Scenes/enemy_spawner.tscn" id="2_al4gj"]
 [ext_resource type="PackedScene" uid="uid://bgaio6m6yxgwr" path="res://Scenes/player.tscn" id="3_iflxp"]
 [ext_resource type="PackedScene" uid="uid://cdvfuu1hpjn3b" path="res://Scenes/Enemies/bunny.tscn" id="4_05vr8"]
 [ext_resource type="Texture2D" uid="uid://ci2ku4rauvga6" path="res://Assets/background.png" id="4_ejexm"]
