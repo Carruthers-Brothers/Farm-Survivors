@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://kd3nv0o7u06f"]
+[gd_scene load_steps=6 format=3 uid="uid://kd3nv0o7u06f"]
 
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_iu674"]
 [ext_resource type="Texture2D" uid="uid://cgn31c81ifkrx" path="res://Assets/tree_placeholder.png" id="2_v75a2"]
@@ -8,6 +8,10 @@ radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwuin"]
 radius = 135.015
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t7apq"]
+radius = 18.0
+height = 56.0
 
 [node name="Tree" type="StaticBody2D"]
 top_level = true
@@ -28,6 +32,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_v75a2")
 
 [node name="RangeArea" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 2
 
 [node name="Range" type="CollisionShape2D" parent="RangeArea"]
@@ -35,5 +40,26 @@ shape = SubResource("CircleShape2D_pwuin")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(0, 1)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_t7apq")
+debug_color = Color(0.997834, 0, 0.156924, 0.42)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(5.29438e-06, 0.826263, 0.157013, 1)
+self_modulate = Color(0, 0.894899, 0.540627, 1)
+offset_left = -11.0
+offset_top = -37.0
+offset_right = 11.0
+offset_bottom = -33.0
+value = 100.0
+show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
