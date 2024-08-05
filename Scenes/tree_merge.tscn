@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://kd3nv0o7u06f"]
+[gd_scene load_steps=8 format=3 uid="uid://c78r1n408b1qa"]
 
-[ext_resource type="Script" path="res://Scripts/tree.gd" id="1_iu674"]
-[ext_resource type="Texture2D" uid="uid://cgn31c81ifkrx" path="res://Assets/tree_placeholder.png" id="2_v75a2"]
-[ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="3_57aaf"]
-[ext_resource type="Texture2D" uid="uid://da12ixuc16pei" path="res://Assets/seed_progress_4.png" id="4_gv7of"]
+[ext_resource type="Script" path="res://Scripts/tree.gd" id="1_nk6rs"]
+[ext_resource type="Texture2D" uid="uid://cgn31c81ifkrx" path="res://Assets/tree_placeholder.png" id="2_4m8fn"]
+[ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="3_mdngc"]
+[ext_resource type="Texture2D" uid="uid://da12ixuc16pei" path="res://Assets/seed_progress_4.png" id="4_xqe23"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_baeno"]
 radius = 9.0
@@ -20,7 +20,7 @@ top_level = true
 y_sort_enabled = true
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_iu674")
+script = ExtResource("1_nk6rs")
 
 [node name="Base" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -33,7 +33,7 @@ position = Vector2(0, -13)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -17)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_v75a2")
+texture = ExtResource("2_4m8fn")
 
 [node name="RangeArea" type="Area2D" parent="."]
 visible = false
@@ -79,8 +79,8 @@ scale = Vector2(0.2, 0.2)
 size_flags_horizontal = 4
 step = 0.01
 fill_mode = 4
-texture_under = ExtResource("3_57aaf")
-texture_progress = ExtResource("4_gv7of")
+texture_under = ExtResource("3_mdngc")
+texture_progress = ExtResource("4_xqe23")
 metadata/_edit_use_anchors_ = true
 
 [node name="HarvestArea" type="Area2D" parent="."]
