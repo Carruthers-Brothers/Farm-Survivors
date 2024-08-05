@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://kd3nv0o7u06f"]
+[gd_scene load_steps=8 format=3 uid="uid://kd3nv0o7u06f"]
 
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_iu674"]
 [ext_resource type="Texture2D" uid="uid://cgn31c81ifkrx" path="res://Assets/tree_placeholder.png" id="2_v75a2"]
+[ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="3_57aaf"]
+[ext_resource type="Texture2D" uid="uid://da12ixuc16pei" path="res://Assets/seed_progress_4.png" id="4_gv7of"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_baeno"]
 radius = 9.0
@@ -9,32 +11,85 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwuin"]
 radius = 135.015
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3tvc"]
+radius = 26.0
+height = 78.0
+
 [node name="Tree" type="StaticBody2D"]
 top_level = true
 y_sort_enabled = true
+collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_iu674")
 
 [node name="Base" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 15)
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_baeno")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -13)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_v75a2")
 
 [node name="RangeArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="Range" type="CollisionShape2D" parent="RangeArea"]
+position = Vector2(0, -30)
 shape = SubResource("CircleShape2D_pwuin")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="HarvestProgress" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -18.5
+offset_right = 20.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HarvestProgressBar" type="TextureProgressBar" parent="HarvestProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.585135
+anchor_right = 0.5
+anchor_bottom = -0.585135
+offset_left = -21.0
+offset_top = -37.85
+offset_right = 198.0
+offset_bottom = 192.15
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+step = 0.01
+fill_mode = 4
+texture_under = ExtResource("3_57aaf")
+texture_progress = ExtResource("4_gv7of")
+metadata/_edit_use_anchors_ = true
+
+[node name="HarvestArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarvestArea"]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_m3tvc")
+debug_color = Color(0.464007, 0.389304, 0.371411, 0.42)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -212,7 +212,7 @@ _data = {
 }
 point_count = 5
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 y_sort_enabled = true
 scale = Vector2(1, 0.989)
@@ -233,17 +233,15 @@ autoplay = "idle"
 frame_progress = 0.746041
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, 6.06673)
 shape = SubResource("CapsuleShape2D_mlciv")
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, 1)
-collision_mask = 2
+collision_mask = 62
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 5.06673)
@@ -274,4 +272,7 @@ curve = SubResource("Curve2D_pn82q")
 position = Vector2(-284, -170.88)
 rotation = 0.0017768
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="SeedCooldown" to="." method="_on_seed_cooldown_timeout"]

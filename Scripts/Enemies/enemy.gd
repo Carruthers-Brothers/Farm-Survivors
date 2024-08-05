@@ -4,10 +4,12 @@ var speed
 var damage_dealt
 var health
 
+@onready var game = get_tree().get_first_node_in_group("game")
 @onready var player = get_node("/root/Game/Player")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var hitbox = $Hitbox
 
+const SEED = preload("res://Scenes/seed.tscn")
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -21,13 +23,26 @@ func _physics_process(_delta):
 	if global_position.distance_to(player.global_position) > 0.5: # so it doesn't flip back and forth rapidly on player
 		move_and_slide() # move and slide accounts for delta time
 	
-	
 
 func take_damage(damage):
 	health -= damage
 	if health <= 0:
+		# drops a pickup-able seed sometimes
+		var num = randf_range(1,100)
+		if num <= 2: # drop chance
+			create_seed("Legendary")
+		elif num <= 5:
+			create_seed("Epic")
+		elif num <= 9:
+			create_seed("Rare")
+		elif num <= 14:
+			create_seed("Uncommon")
+		elif num <= 20:
+			create_seed("Common")
 		queue_free()
 
-# all enemies can take damage, move towards player, etc. Each one has different animations, speed, health, and damage dealt
-# so inherited part sets those values for each one. Or just make it a class and set the values for each enemy type? 
-# should the graphics be singleton for the monsters? probably. or the animatedsprite2d is the same?
+func create_seed(seed_type):
+	var seed = SEED.instantiate()
+	seed.global_position = global_position
+	game.add_child(seed)
+	seed.set_type(seed_type)

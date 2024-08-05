@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://4vkbkir4p2o"]
+
+[ext_resource type="Script" path="res://Scripts/small_tree.gd" id="1_jbb2x"]
+[ext_resource type="Texture2D" uid="uid://mgx82eersuip" path="res://Assets/small_tree.png" id="2_axmq7"]
+[ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="3_dr4mp"]
+[ext_resource type="Texture2D" uid="uid://so8dyx7wdn1n" path="res://Assets/seed_progress_2.png" id="4_3w8xf"]
+[ext_resource type="Texture2D" uid="uid://bn5egjn6g8wq8" path="res://Assets/seed_progress_3.png" id="5_if8tk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmrc7"]
+radius = 25.0
+
+[node name="SmallTree" type="Node2D"]
+position = Vector2(1, -10)
+script = ExtResource("1_jbb2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, -7)
+scale = Vector2(0.113961, 0.113961)
+texture = ExtResource("2_axmq7")
+
+[node name="GrowthTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="GrowthProgress" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -18.5
+offset_right = 20.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GrowthProgressBar" type="TextureProgressBar" parent="GrowthProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47561
+anchor_top = -0.17973
+anchor_right = 0.47561
+anchor_bottom = -0.17973
+offset_left = -21.0
+offset_top = -37.85
+offset_right = 198.0
+offset_bottom = 192.15
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+max_value = 10.0
+step = 0.05
+fill_mode = 4
+texture_under = ExtResource("3_dr4mp")
+texture_progress = ExtResource("4_3w8xf")
+metadata/_edit_use_anchors_ = true
+
+[node name="WaterProgress" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -38.0
+offset_right = 81.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WaterProgressBar" type="TextureProgressBar" parent="WaterProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.02439
+anchor_top = 0.32027
+anchor_right = -1.02439
+anchor_bottom = 0.32027
+offset_left = -21.0
+offset_top = -37.85
+offset_right = 198.0
+offset_bottom = 192.15
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+max_value = 50.0
+step = 0.01
+fill_mode = 4
+texture_under = ExtResource("3_dr4mp")
+texture_progress = ExtResource("5_if8tk")
+metadata/_edit_use_anchors_ = true
+
+[node name="WateringArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WateringArea"]
+position = Vector2(-1, -6)
+shape = SubResource("CircleShape2D_xmrc7")
+
+[connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]

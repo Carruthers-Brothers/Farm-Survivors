@@ -1,17 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dko7aglao6gjw"]
+[gd_scene load_steps=11 format=3 uid="uid://dko7aglao6gjw"]
 
+[ext_resource type="Script" path="res://Scripts/main_ui.gd" id="1_f18wm"]
 [ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="1_qbpcd"]
 [ext_resource type="Texture2D" uid="uid://bjnvcitpfbu7s" path="res://Assets/seed_progress.png" id="2_nb5fm"]
+[ext_resource type="Texture2D" uid="uid://dx2cguyuthq4u" path="res://Assets/watering_can.png" id="3_qil31"]
+[ext_resource type="Texture2D" uid="uid://fuomm85qmwwr" path="res://Assets/1-Common_Seed.png" id="4_hotkq"]
+[ext_resource type="Texture2D" uid="uid://bsactfcec5kk4" path="res://Assets/2-UncommonSeed.png" id="5_x4q4f"]
+[ext_resource type="Texture2D" uid="uid://b5ft2wb281hps" path="res://Assets/3-RareSeed.png" id="6_dg0jm"]
+[ext_resource type="Texture2D" uid="uid://7velahvv6smf" path="res://Assets/4-EpicSeed.png" id="7_vguob"]
+[ext_resource type="Texture2D" uid="uid://bqq1gqtd17fmg" path="res://Assets/5-LegendarySeed.png" id="8_4r5c0"]
 
-[node name="MainUI" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf7dw"]
+bg_color = Color(0.173061, 0.613776, 0.970083, 1)
+
+[node name="MainUI" type="Control" groups=["ui"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f18wm")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="SeedProgress" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 1644.0
 offset_top = 17.0
@@ -23,7 +34,7 @@ fill_mode = 4
 texture_under = ExtResource("1_qbpcd")
 texture_progress = ExtResource("2_nb5fm")
 
-[node name="Label" type="Label" parent="."]
+[node name="CooldownText" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1644.0
 offset_top = 43.0
@@ -34,7 +45,7 @@ theme_override_colors/font_shadow_color = Color(0.509286, 0.509286, 0.509286, 1)
 theme_override_font_sizes/font_size = 30
 text = "Seed Cooldown"
 
-[node name="Label2" type="Label" parent="."]
+[node name="PlantText" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1687.0
 offset_top = 184.0
@@ -42,6 +53,16 @@ offset_right = 1822.0
 offset_bottom = 207.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press \"E\" to plant"
+
+[node name="SeedCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 963.0
+offset_top = 30.0
+offset_right = 1101.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Seed Count"
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 0
@@ -54,3 +75,193 @@ theme_override_font_sizes/font_size = 40
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="WateringCan" type="Sprite2D" parent="."]
+position = Vector2(1450, 140)
+scale = Vector2(0.624444, 0.624444)
+texture = ExtResource("3_qil31")
+
+[node name="WaterProgress" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81
+anchor_top = 0.131
+anchor_right = 0.81
+anchor_bottom = 0.131
+offset_left = -16.2001
+offset_top = -56.48
+offset_right = 22.7999
+offset_bottom = 55.52
+theme_override_styles/fill = SubResource("StyleBoxFlat_bf7dw")
+fill_mode = 3
+show_percentage = false
+
+[node name="CommonButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 85.0
+offset_right = 832.0
+offset_bottom = 163.0
+flat = true
+
+[node name="1-commonSeed" type="Sprite2D" parent="CommonButton"]
+position = Vector2(40, 37)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_hotkq")
+
+[node name="CommonCount" type="Label" parent="CommonButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 122.0
+offset_right = 47.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "0"
+
+[node name="CommonName" type="Label" parent="CommonButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 89.0
+offset_right = 76.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Common"
+
+[node name="UncommonButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 877.0
+offset_top = 87.0
+offset_right = 956.0
+offset_bottom = 165.0
+flat = true
+
+[node name="2-uncommonSeed" type="Sprite2D" parent="UncommonButton"]
+position = Vector2(40, 37)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_x4q4f")
+
+[node name="UncommonCount" type="Label" parent="UncommonButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 122.0
+offset_right = 47.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "0"
+
+[node name="UncommonName" type="Label" parent="UncommonButton"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 87.0
+offset_right = 86.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Uncommon"
+
+[node name="RareButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 998.0
+offset_top = 87.0
+offset_right = 1077.0
+offset_bottom = 165.0
+flat = true
+
+[node name="3-rareSeed" type="Sprite2D" parent="RareButton"]
+position = Vector2(38, 40)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_dg0jm")
+
+[node name="RareCount" type="Label" parent="RareButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 122.0
+offset_right = 47.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "0"
+
+[node name="RareName" type="Label" parent="RareButton"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 87.0
+offset_right = 55.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Rare"
+
+[node name="EpicButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1117.0
+offset_top = 87.0
+offset_right = 1196.0
+offset_bottom = 165.0
+flat = true
+
+[node name="4-epicSeed" type="Sprite2D" parent="EpicButton"]
+position = Vector2(42, 40)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_vguob")
+
+[node name="EpicCount" type="Label" parent="EpicButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 122.0
+offset_right = 47.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "0"
+
+[node name="EpicName" type="Label" parent="EpicButton"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 89.0
+offset_right = 57.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Epic"
+
+[node name="LegendaryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1231.0
+offset_top = 87.0
+offset_right = 1310.0
+offset_bottom = 165.0
+flat = true
+
+[node name="5-legendarySeed" type="Sprite2D" parent="LegendaryButton"]
+position = Vector2(40, 40)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_4r5c0")
+
+[node name="LegendaryCount" type="Label" parent="LegendaryButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 122.0
+offset_right = 47.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "0"
+
+[node name="LegendaryName" type="Label" parent="LegendaryButton"]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 81.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Legendary"
+
+[connection signal="pressed" from="CommonButton" to="." method="_on_common_button_pressed"]
+[connection signal="pressed" from="UncommonButton" to="." method="_on_uncommon_button_pressed"]
+[connection signal="pressed" from="RareButton" to="." method="_on_rare_button_pressed"]
+[connection signal="pressed" from="EpicButton" to="." method="_on_epic_button_pressed"]
+[connection signal="pressed" from="LegendaryButton" to="." method="_on_legendary_button_pressed"]

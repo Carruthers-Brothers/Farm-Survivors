@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://de16yrwxesj6o"]
+[gd_scene load_steps=11 format=3 uid="uid://de16yrwxesj6o"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_wpwt0"]
 [ext_resource type="PackedScene" uid="uid://pufx1ujejf75" path="res://Scenes/enemy_spawner.tscn" id="2_al4gj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://kd3nv0o7u06f" path="res://Scenes/tree.tscn" id="5_4iydv"]
 [ext_resource type="PackedScene" uid="uid://cocp6168xqrcb" path="res://Scenes/death_menu.tscn" id="5_t8sce"]
 [ext_resource type="PackedScene" uid="uid://c41g2o44k0bnb" path="res://Scenes/pause_menu.tscn" id="7_isgbb"]
+[ext_resource type="PackedScene" uid="uid://y7v240wsbor3" path="res://Scenes/pond.tscn" id="10_leke0"]
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_wpwt0")
@@ -39,9 +40,18 @@ offset_right = 1.0
 [node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("5_t8sce")]
 
 [node name="Enemy" parent="." instance=ExtResource("4_05vr8")]
-position = Vector2(215, 40)
+position = Vector2(218, 32)
 
 [node name="Tree" parent="." instance=ExtResource("5_4iydv")]
 position = Vector2(-72, -62)
 
+[node name="Pond" parent="." instance=ExtResource("10_leke0")]
+z_index = -1
+position = Vector2(105, 62)
+
+[node name="WaterTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
+[connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]
