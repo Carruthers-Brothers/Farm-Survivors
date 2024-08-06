@@ -1,11 +1,13 @@
 extends "res://Scripts/Enemies/enemy.gd"
 @onready var range_area = $RangeArea
 @onready var visibility_on_screen_notifier = $VisibleOnScreenNotifier2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speed = 40
+	speed = 20
 	damage_dealt = 20
 	health = 30
+	enemy_type = "beaver"
 	
 func getTarget():
 	var isOnScreen = visibility_on_screen_notifier.is_on_screen()

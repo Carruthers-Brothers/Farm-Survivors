@@ -1,14 +1,16 @@
 extends Control
 
-@onready var common_count = $CommonButton/CommonCount
-@onready var uncommon_count = $UncommonButton/UncommonCount
-@onready var rare_count = $RareButton/RareCount
-@onready var epic_count = $EpicButton/EpicCount
-@onready var legendary_count = $LegendaryButton/LegendaryCount
+@onready var common_count = $SeedContainer/CommonButton/CommonCount
+@onready var uncommon_count = $SeedContainer/UncommonButton/UncommonCount
+@onready var rare_count = $SeedContainer/RareButton/RareCount
+@onready var epic_count = $SeedContainer/EpicButton/EpicCount
+@onready var legendary_count = $SeedContainer/LegendaryButton/LegendaryCount
+@onready var seed_count = $SeedContainer/SeedCount
 @onready var water_progress = $WaterProgress
 @onready var seed_progress = $SeedProgress
-@onready var seed_count = $SeedCount
 @onready var time = $Time
+@onready var level_text = $LevelText
+@onready var level_progress = $LevelProgress
 
 var player
 
@@ -27,6 +29,8 @@ func _process(delta):
 	# progress bar updates
 	seed_progress.value = 10 - player.seed_cooldown.time_left 
 	water_progress.value = player.water_level
+	level_text.text = "Level " + str(player.level)
+	level_progress.value = player.total_xp % 100
 	
 	# all seed inventory ui updates
 	var seeds_dict = player.seeds

@@ -11,6 +11,7 @@ extends Node2D
 var water_needed = 25
 var water_amount = 0.0
 var time = 5
+var rarity
 
 const SMALL_TREE = preload("res://Scenes/small_tree.tscn")
 
@@ -30,6 +31,7 @@ func _process(_delta):
 func _on_growth_timer_timeout():
 	var small_tree = SMALL_TREE.instantiate()
 	small_tree.global_position = global_position
+	small_tree.rarity = rarity
 	game.add_child(small_tree)
 	queue_free() # remove this after tree spawns in
 

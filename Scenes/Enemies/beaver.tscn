@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1cguchnehga6"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/beaver.gd" id="1_yddpm"]
-[ext_resource type="Texture2D" uid="uid://dh2j2eygrfxyt" path="res://Assets/beaver_placeholder.png" id="2_i6xpg"]
+[ext_resource type="Texture2D" uid="uid://cj2bgqwaj1ksv" path="res://Assets/Biff.png" id="2_futmg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xnd0c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_i6xpg")
+"texture": ExtResource("2_futmg")
 }],
 "loop": true,
 "name": &"default",
@@ -20,18 +20,16 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pd2i"]
 radius = 135.015
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Beaver" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
 platform_floor_layers = 4294967040
 script = ExtResource("1_yddpm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.98023e-08, 1)
-rotation = 3.14159
-scale = Vector2(0.0586628, 0.0586628)
+position = Vector2(2.38419e-07, -7)
+scale = Vector2(0.051751, 0.051751)
 sprite_frames = SubResource("SpriteFrames_xnd0c")
-flip_v = true
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)
@@ -42,13 +40,14 @@ disabled = true
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
-polygon = PackedVector2Array(5, -5, 1, -5, -1, -3, -5, -1, -6, 3, -4, 5, -2, 6, 2, 7, 5, 7, 5, 5, 1, 5, 2, 3, 2, 1, 4, 0, 2, -1, 3, -2, 4, -2, 5, -3)
+polygon = PackedVector2Array(-10, 1, -4, 1, -3, -3, 0, -5, 4, -4, 5, -1, 8, 1, 8, 3, 6, 5, 4, 5, 3, 5, 2, 6, 0, 5, -1, 5, -2, 6, -4, 4, -5, 3, -10, 2)
 
 [node name="RangeArea" type="Area2D" parent="."]
 z_index = 1
 collision_layer = 0
 
 [node name="Range" type="CollisionShape2D" parent="RangeArea"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_0pd2i")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

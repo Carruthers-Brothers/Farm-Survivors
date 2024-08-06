@@ -14,6 +14,9 @@ var health = 100
 var speed = 100
 var plantable = true
 var water_level = 0.0 # how much water is in the watering can
+var total_xp = 0
+var level = 1 # have xp amounts needed for each level
+var attack_speed = 4 
 
 # seed inventory for the different types of seed rarities or seed types
 var seeds = { 
@@ -25,10 +28,17 @@ var seeds = {
 }
 
 signal player_death
-
+signal level_up
 
 func _physics_process(delta):
-
+	
+	# check if xp amount is enough to level up, then emit level up signal
+	var xp_needed = 100 * level
+	if total_xp >= xp_needed:
+		# print("total xp is " + str(total_xp) + " and xp needed for level " + str(level) + " is " + str(xp_needed))
+		level += 1
+		emit_signal("level_up")
+	
 	# seed planting
 	if Input.is_action_just_pressed("plant"):
 		plant_seed()
@@ -74,12 +84,17 @@ func plant_seed():
 		seed_cooldown.start() # seed planted, start cooldown before can plant again
 		var new_sprout = SPROUT.instantiate()
 		new_sprout.global_position = global_position # plant where player is
+		new_sprout.rarity = selected # selected is rarity / type
 		game.add_child(new_sprout) # add seed to Game scene
 
 
 func _on_seed_cooldown_timeout():
 	plantable = true # able to plant another seed
 	
+
+func add_xp(xp_amount):
+	total_xp += xp_amount
+
 
 func check_collisions(delta):
 	
@@ -108,7 +123,7 @@ func check_collisions(delta):
 			if Input.is_action_pressed("water"):
 				if water_level > 0:
 					var plant = area.get_parent()
-					var level_change = 50 * delta
+					var level_change = 60 * delta
 					plant.water_amount += level_change
 					water_level -= level_change
 					if water_level < 0:

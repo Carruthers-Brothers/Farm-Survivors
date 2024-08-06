@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgn31c81ifkrx"
-path="res://.godot/imported/tree_placeholder.png-3fa29e0da2f3d41d7ec73925b3bb40e1.ctex"
+uid="uid://cj2bgqwaj1ksv"
+path="res://.godot/imported/Biff.png-3791006ff63258af59404cc28614179d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tree_placeholder.png"
-dest_files=["res://.godot/imported/tree_placeholder.png-3fa29e0da2f3d41d7ec73925b3bb40e1.ctex"]
+source_file="res://Assets/Biff.png"
+dest_files=["res://.godot/imported/Biff.png-3791006ff63258af59404cc28614179d.ctex"]
 
 [params]
 

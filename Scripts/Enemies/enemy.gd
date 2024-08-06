@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed
 var damage_dealt
 var health
+var enemy_type
 
 @onready var game = get_tree().get_first_node_in_group("game")
 @onready var player = get_node("/root/Game/Player")

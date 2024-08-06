@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh2j2eygrfxyt"
-path="res://.godot/imported/beaver_placeholder.png-0e0fcc5d45d2e17a2aa614204ef687cf.ctex"
+uid="uid://bqmanc4xno3tp"
+path="res://.godot/imported/Apple.png-73bcd2dc22d5ebd21f968c0d994eb82d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/beaver_placeholder.png"
-dest_files=["res://.godot/imported/beaver_placeholder.png-0e0fcc5d45d2e17a2aa614204ef687cf.ctex"]
+source_file="res://Assets/Apple.png"
+dest_files=["res://.godot/imported/Apple.png-73bcd2dc22d5ebd21f968c0d994eb82d.ctex"]
 
 [params]
 

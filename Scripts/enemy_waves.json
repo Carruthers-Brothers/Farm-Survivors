@@ -18,6 +18,10 @@
 					"enemy" : "beaver",
 					"count" : 1
 				},
+				{
+					"enemy" : "hornet",
+					"count" : 2
+				},
 			]
 		},
 		{
@@ -52,6 +56,10 @@
 			"6" : [
 				{
 					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "hornet",
 					"count" : 2
 				},
 			]
@@ -94,6 +102,10 @@
 					"enemy" : "beaver",
 					"count" : 2
 				},
+				{
+					"enemy" : "hornet",
+					"count" : 2
+				},
 			]
 		},
 		{
@@ -112,7 +124,11 @@
 			"12" : [
 				{
 					"enemy" : "bunny",
-					"count" : 5
+					"count" : 2
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 10
 				},
 			]
 		},

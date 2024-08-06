@@ -2,7 +2,7 @@ extends "res://Scripts/Enemies/enemy.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speed = 60
-	damage_dealt = 20
-	health = 20
-	enemy_type = "bunny"
+	speed = 80
+	damage_dealt = 5
+	health = 5
+	enemy_type = "hornet"

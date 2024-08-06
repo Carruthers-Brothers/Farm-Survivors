@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceo6g1teyrsd8"]
 
 [ext_resource type="Script" path="res://Scripts/apple.gd" id="1_625xm"]
-[ext_resource type="Texture2D" uid="uid://dj1igj2n205xv" path="res://Assets/apple_placeholder.png" id="2_h2xku"]
+[ext_resource type="Texture2D" uid="uid://bqmanc4xno3tp" path="res://Assets/Apple.png" id="2_oj5vv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsnaf"]
 radius = 3.0
@@ -13,8 +13,9 @@ collision_mask = 2
 script = ExtResource("1_625xm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0222222, 0.0222222)
-texture = ExtResource("2_h2xku")
+position = Vector2(0, 1)
+scale = Vector2(0.0355556, 0.0355556)
+texture = ExtResource("2_oj5vv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

@@ -5,11 +5,13 @@ extends Node2D
 
 const BUNNY = preload("res://Scenes/Enemies/bunny.tscn")
 const BEAVER = preload("res://Scenes/Enemies/beaver.tscn")
+const HORNET = preload("res://Scenes/Enemies/hornet.tscn")
 const ENEMY_WAVES = preload("res://Scripts/enemy_waves.json") # all wave data to spawn enemies for a run
 
 const enemy_dict = { # convert from string to actual enemy scene resource
 	"bunny" : BUNNY,
-	"beaver" : BEAVER
+	"beaver" : BEAVER, 
+	"hornet" : HORNET
 }
 
 var waves : Array[Wave] = [] 

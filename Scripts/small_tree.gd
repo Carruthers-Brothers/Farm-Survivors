@@ -11,6 +11,7 @@ extends Node2D
 var water_needed = 50
 var water_amount = 0.0
 var time = 10
+var rarity
 
 const TREE = preload("res://Scenes/tree.tscn")
 

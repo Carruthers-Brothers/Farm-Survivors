@@ -8,6 +8,7 @@ var damage = 10
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# the base in the center is actually a marker, so it rotates around that
+	rotation_speed = get_parent().attack_speed # getting attack speed from player
 	scythe.global_rotation += rotation_speed * delta
 
 

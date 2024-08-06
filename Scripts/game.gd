@@ -1,8 +1,9 @@
 extends Node2D
 
-@onready var death_menu = $CanvasLayer/DeathMenu
-@onready var player = $Player
 @onready var game = $"."
+@onready var player = $Player
+@onready var death_menu = $CanvasLayer/DeathMenu
+@onready var upgrade_menu = $CanvasLayer/UpgradeMenu
 
 const POND = preload("res://Scenes/pond.tscn")
 
@@ -10,6 +11,11 @@ const POND = preload("res://Scenes/pond.tscn")
 func _on_player_player_death():
 	death_menu.show()
 	get_tree().paused = true
+
+
+func _on_player_level_up():
+	upgrade_menu.show()
+	get_tree().paused = true # bug where resumes if you have both pause menu and upgrade menu open
 
 
 func _on_water_timer_timeout():
@@ -39,3 +45,4 @@ func _on_water_timer_timeout():
 	var pond = POND.instantiate()
 	pond.global_position = rand_position
 	game.add_child(pond)
+
