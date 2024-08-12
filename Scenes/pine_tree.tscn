@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgtm1vef7hjyb"]
+
+[ext_resource type="Script" path="res://Scripts/pine_tree.gd" id="1_xlns8"]
+[ext_resource type="Texture2D" uid="uid://mgx82eersuip" path="res://Assets/small_tree.png" id="2_2j03h"]
+[ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="5_2obrk"]
+[ext_resource type="Texture2D" uid="uid://da12ixuc16pei" path="res://Assets/seed_progress_4.png" id="6_745yc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_baeno"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pwuin"]
+radius = 135.015
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3tvc"]
+radius = 26.0
+height = 78.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bwhbb"]
+radius = 18.0
+height = 56.0
+
+[node name="PineTree" type="StaticBody2D"]
+top_level = true
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_xlns8")
+
+[node name="Base" type="CollisionShape2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_baeno")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="PineTree" type="Sprite2D" parent="."]
+position = Vector2(1, -14)
+scale = Vector2(0.104375, 0.104375)
+texture = ExtResource("2_2j03h")
+
+[node name="RangeArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="RangeArea"]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_pwuin")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="HarvestProgress" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -18.5
+offset_right = 20.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HarvestProgressBar" type="TextureProgressBar" parent="HarvestProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.585135
+anchor_right = 0.5
+anchor_bottom = -0.585135
+offset_left = -21.0
+offset_top = -37.85
+offset_right = 198.0
+offset_bottom = 192.15
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+step = 0.01
+fill_mode = 4
+texture_under = ExtResource("5_2obrk")
+texture_progress = ExtResource("6_745yc")
+metadata/_edit_use_anchors_ = true
+
+[node name="HarvestArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarvestArea"]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_m3tvc")
+debug_color = Color(0.464007, 0.389304, 0.371411, 0.42)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
+y_sort_enabled = true
+position = Vector2(0, 1)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_bwhbb")
+debug_color = Color(0.997834, 0, 0.156924, 0.42)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(5.29438e-06, 0.826263, 0.157013, 1)
+self_modulate = Color(0, 0.894899, 0.540627, 1)
+offset_left = -11.0
+offset_top = -53.0
+offset_right = 11.0
+offset_bottom = -49.0
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
