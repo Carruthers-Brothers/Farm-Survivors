@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dko7aglao6gjw"]
+[gd_scene load_steps=12 format=3 uid="uid://dko7aglao6gjw"]
 
 [ext_resource type="Script" path="res://Scripts/main_ui.gd" id="1_f18wm"]
 [ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="1_qbpcd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ft2wb281hps" path="res://Assets/3-RareSeed.png" id="6_dg0jm"]
 [ext_resource type="Texture2D" uid="uid://7velahvv6smf" path="res://Assets/4-EpicSeed.png" id="7_vguob"]
 [ext_resource type="Texture2D" uid="uid://bqq1gqtd17fmg" path="res://Assets/5-LegendarySeed.png" id="8_4r5c0"]
+[ext_resource type="PackedScene" uid="uid://teiaaxdnnvmm" path="res://Scenes/minimap.tscn" id="10_uapv7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf7dw"]
 bg_color = Color(0.173061, 0.613776, 0.970083, 1)
@@ -21,6 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f18wm")
+
+[node name="Minimap" parent="." instance=ExtResource("10_uapv7")]
 
 [node name="SeedProgress" type="TextureProgressBar" parent="."]
 layout_mode = 0

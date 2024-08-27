@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c02srhqbuabys"]
+
+[ext_resource type="Texture2D" uid="uid://bf7xtd2gnwlaa" path="res://Assets/wellJonnhyAppleseed.png" id="1_htkbx"]
+
+[node name="Well" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-14, 2, 18, 2, 19, -31, 14, -36, 14, -45, 23, -52, 7, -87, -23, -51, -12, -46, -13, -35, -18, -29, -18, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.14441e-05, -31)
+scale = Vector2(0.0327621, 0.0327621)
+texture = ExtResource("1_htkbx")

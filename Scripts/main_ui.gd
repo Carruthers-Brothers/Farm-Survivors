@@ -30,7 +30,7 @@ func _process(delta):
 	seed_progress.value = 10 - player.seed_cooldown.time_left 
 	water_progress.value = player.water_level
 	level_text.text = "Level " + str(player.level)
-	level_progress.value = player.total_xp % 100
+	level_progress.value = int(player.total_xp) % 100
 	
 	# all seed inventory ui updates
 	var seeds_dict = player.seeds

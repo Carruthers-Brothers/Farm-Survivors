@@ -3,63 +3,67 @@
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_mpwcj"]
 [ext_resource type="Texture2D" uid="uid://ci2ku4rauvga6" path="res://Assets/background.png" id="9_3jok2"]
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_mpwcj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(312, 348)
-offset = Vector2(250, 0)
-zoom = Vector2(3, 3)
+position = Vector2(961, 540)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-466, -286)
-scale = Vector2(1.84, 1.84)
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(490.761, 412.5)
-scale = Vector2(0.2, 0.2)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(932, 639)
+scale = Vector2(0.729, 0.729)
 texture = ExtResource("9_3jok2")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
 
-[node name="StartButton" type="Button" parent="Control"]
-texture_filter = 2
-layout_mode = 0
-offset_left = 492.0
-offset_top = 314.0
-offset_right = 1792.0
-offset_bottom = 864.0
-scale = Vector2(0.1, 0.1)
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 200
-text = "Start"
-
-[node name="QuitButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 492.0
-offset_top = 398.0
-offset_right = 1792.0
-offset_bottom = 948.0
-scale = Vector2(0.1, 0.1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 200
-text = "Quit"
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 425.0
-offset_top = 226.0
-offset_right = 5752.0
-offset_bottom = 1044.0
-scale = Vector2(0.05, 0.05)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 600
+theme_override_font_sizes/font_size = 64
 text = "Johnny Towerseed"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="Control" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer/Control/HBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 2
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/Control/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

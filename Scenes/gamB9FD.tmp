@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://de16yrwxesj6o"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_wpwt0"]
+[ext_resource type="PackedScene" uid="uid://bd8lgm0cmd25g" path="res://Scenes/enemy_spawner.tscn" id="2_al4gj"]
+[ext_resource type="PackedScene" uid="uid://bgaio6m6yxgwr" path="res://Scenes/player.tscn" id="3_iflxp"]
+[ext_resource type="PackedScene" uid="uid://cdvfuu1hpjn3b" path="res://Scenes/Enemies/bunny.tscn" id="4_05vr8"]
+[ext_resource type="Texture2D" uid="uid://ci2ku4rauvga6" path="res://Assets/background.png" id="4_ejexm"]
+[ext_resource type="PackedScene" uid="uid://dko7aglao6gjw" path="res://Scenes/main_ui.tscn" id="4_lousv"]
+[ext_resource type="PackedScene" uid="uid://c78r1n408b1qa" path="res://Scenes/tree.tscn" id="5_4iydv"]
+[ext_resource type="PackedScene" uid="uid://cocp6168xqrcb" path="res://Scenes/death_menu.tscn" id="5_t8sce"]
+[ext_resource type="PackedScene" uid="uid://c41g2o44k0bnb" path="res://Scenes/pause_menu.tscn" id="7_isgbb"]
+[ext_resource type="PackedScene" uid="uid://bbik38nrtmm07" path="res://Scenes/upgrade_menu.tscn" id="7_xxlaq"]
+[ext_resource type="PackedScene" uid="uid://d3efixamu42t" path="res://Scenes/Enemies/hornet.tscn" id="10_fwsl5"]
+[ext_resource type="PackedScene" uid="uid://y7v240wsbor3" path="res://Scenes/pond.tscn" id="10_leke0"]
+[ext_resource type="PackedScene" uid="uid://d1cguchnehga6" path="res://Scenes/Enemies/beaver.tscn" id="13_ydtx4"]
+[ext_resource type="PackedScene" uid="uid://c02srhqbuabys" path="res://Scenes/well.tscn" id="14_7qud0"]
+[ext_resource type="PackedScene" uid="uid://bv266hw3fuh6l" path="res://Scenes/seed.tscn" id="15_vh6ft"]
+
+[node name="Game" type="Node2D" groups=["game"]]
+script = ExtResource("1_wpwt0")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_al4gj")]
+
+[node name="Player" parent="." instance=ExtResource("3_iflxp")]
+position = Vector2(2, -2)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
+repeat_size = Vector2(600, 600)
+
+[node name="Grass2" type="Sprite2D" parent="Parallax2D"]
+texture_filter = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ejexm")
+centered = false
+
+[node name="Parallax" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax"]
+motion_mirroring = Vector2(600, 600)
+
+[node name="Grass" type="Sprite2D" parent="Parallax/ParallaxLayer"]
+texture_filter = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ejexm")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUI" parent="CanvasLayer" instance=ExtResource("4_lousv")]
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("7_xxlaq")]
+visible = false
+
+[node name="DeathMenu" parent="CanvasLayer" instance=ExtResource("5_t8sce")]
+visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_isgbb")]
+visible = false
+
+[node name="Enemy" parent="." instance=ExtResource("4_05vr8")]
+position = Vector2(218, 32)
+
+[node name="Hornet" parent="." instance=ExtResource("10_fwsl5")]
+position = Vector2(239, -13)
+
+[node name="Tree" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(-14, 57)
+
+[node name="Tree2" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(89, -36)
+
+[node name="Tree5" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(95, 52)
+
+[node name="Tree6" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(-59, 32)
+
+[node name="Tree7" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(-27, -20)
+
+[node name="Tree8" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(-131, 15)
+
+[node name="Tree3" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(-181, -89)
+
+[node name="Tree4" parent="." instance=ExtResource("5_4iydv")]
+position = Vector2(23, -106)
+
+[node name="Pond" parent="." instance=ExtResource("10_leke0")]
+z_index = -1
+position = Vector2(105, 62)
+
+[node name="WaterTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="Beaver" parent="." instance=ExtResource("13_ydtx4")]
+position = Vector2(-258, 111)
+
+[node name="Well" parent="." instance=ExtResource("14_7qud0")]
+position = Vector2(3, 128)
+
+[node name="Seed" parent="." instance=ExtResource("15_vh6ft")]
+position = Vector2(24, -48)
+
+[node name="Seed2" parent="." instance=ExtResource("15_vh6ft")]
+position = Vector2(44, -11)
+
+[connection signal="level_up" from="Player" to="." method="_on_player_level_up"]
+[connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
+[connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]

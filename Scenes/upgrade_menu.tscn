@@ -48,7 +48,7 @@ offset_bottom = 65.92
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UpgradeTitle" type="Label" parent="UpgradeButton1"]
+[node name="UpgradeTitle1" type="Label" parent="UpgradeButton1"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 28.0
@@ -58,7 +58,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "First Upgrade Title"
 
-[node name="UpgradeDescription" type="Label" parent="UpgradeButton1"]
+[node name="UpgradeDescription1" type="Label" parent="UpgradeButton1"]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 89.0
@@ -82,7 +82,7 @@ offset_bottom = 295.92
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UpgradeTitle" type="Label" parent="UpgradeButton2"]
+[node name="UpgradeTitle2" type="Label" parent="UpgradeButton2"]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 28.0
@@ -92,7 +92,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "Second Upgrade Title"
 
-[node name="UpgradeDescription" type="Label" parent="UpgradeButton2"]
+[node name="UpgradeDescription2" type="Label" parent="UpgradeButton2"]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 89.0
@@ -116,7 +116,7 @@ offset_bottom = 534.92
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UpgradeTitle" type="Label" parent="UpgradeButton3"]
+[node name="UpgradeTitle3" type="Label" parent="UpgradeButton3"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 31.0
@@ -127,7 +127,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 text = "Third Upgrade Title"
 
-[node name="UpgradeDescription" type="Label" parent="UpgradeButton3"]
+[node name="UpgradeDescription3" type="Label" parent="UpgradeButton3"]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 89.0
