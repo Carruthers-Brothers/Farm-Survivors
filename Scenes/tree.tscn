@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_iu674"]
 [ext_resource type="Texture2D" uid="uid://cjnm3u26mr6a5" path="res://Assets/fullAppleFast.png" id="2_3xt8w"]
-[ext_resource type="Texture2D" uid="uid://culxc8o72r47a" path="res://Assets/fullGreenFast1.png" id="3_4ujsb"]
+[ext_resource type="Texture2D" uid="uid://cw0vrkp8gn834" path="res://Assets/Pine Tree.png" id="3_5aqb5"]
 [ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="3_57aaf"]
 [ext_resource type="Texture2D" uid="uid://da12ixuc16pei" path="res://Assets/seed_progress_4.png" id="4_gv7of"]
 
@@ -44,8 +44,8 @@ texture = ExtResource("2_3xt8w")
 [node name="UncommonTree" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(2, -13)
-scale = Vector2(0.0175, 0.0175)
-texture = ExtResource("3_4ujsb")
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("3_5aqb5")
 
 [node name="RangeArea" type="Area2D" parent="."]
 visible = false
