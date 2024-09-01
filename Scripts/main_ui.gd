@@ -3,8 +3,8 @@ extends Control
 @onready var common_count = $SeedContainer/CommonButton/CommonCount
 @onready var uncommon_count = $SeedContainer/UncommonButton/UncommonCount
 @onready var seed_count = $SeedContainer/SeedCount
-@onready var water_progress = $WaterProgress
-@onready var seed_progress = $SeedProgress
+@onready var water_progress = $UpperRightControls/WaterProgress
+@onready var seed_progress = $UpperRightControls/SeedProgress
 @onready var time = $Time
 @onready var level_text = $LevelText
 @onready var level_progress = $LevelProgress

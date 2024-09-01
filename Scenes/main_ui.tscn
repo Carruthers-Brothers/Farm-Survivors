@@ -22,38 +22,6 @@ script = ExtResource("1_f18wm")
 
 [node name="Minimap" parent="." instance=ExtResource("10_uapv7")]
 
-[node name="SeedProgress" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 1644.0
-offset_top = 17.0
-offset_right = 1863.0
-offset_bottom = 247.0
-max_value = 10.0
-step = 0.05
-fill_mode = 4
-texture_under = ExtResource("1_qbpcd")
-texture_progress = ExtResource("2_nb5fm")
-
-[node name="CooldownText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1644.0
-offset_top = 43.0
-offset_right = 1866.0
-offset_bottom = 85.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.509286, 0.509286, 0.509286, 1)
-theme_override_font_sizes/font_size = 30
-text = "Seed Cooldown"
-
-[node name="PlantText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1687.0
-offset_top = 184.0
-offset_right = 1822.0
-offset_bottom = 207.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Press \"E\" to plant"
-
 [node name="Time" type="Label" parent="."]
 layout_mode = 0
 offset_left = 84.0
@@ -92,37 +60,6 @@ offset_right = 505.0
 offset_bottom = 181.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press \"R\" to harvest trees"
-
-[node name="WateringCan" type="Sprite2D" parent="."]
-position = Vector2(1422.25, 113.25)
-scale = Vector2(0.624444, 0.624444)
-texture = ExtResource("3_qil31")
-
-[node name="WaterProgress" type="ProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.81
-anchor_top = 0.131
-anchor_right = 0.81
-anchor_bottom = 0.131
-offset_left = -43.9502
-offset_top = -83.2301
-offset_right = -4.9502
-offset_bottom = 28.7699
-theme_override_styles/fill = SubResource("StyleBoxFlat_bf7dw")
-fill_mode = 3
-show_percentage = false
-
-[node name="WateringText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1385.25
-offset_top = 193.25
-offset_right = 1588.25
-offset_bottom = 242.25
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Press \"F\" to collect water 
-and water plants"
-horizontal_alignment = 1
 
 [node name="SeedContainer" type="Control" parent="."]
 layout_mode = 1
@@ -220,6 +157,78 @@ offset_bottom = 113.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Uncommon"
+
+[node name="UpperRightControls" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -535.0
+offset_bottom = 311.0
+grow_horizontal = 0
+
+[node name="WateringCan" type="Sprite2D" parent="UpperRightControls"]
+position = Vector2(88.0555, 112.056)
+scale = Vector2(0.624444, 0.624444)
+texture = ExtResource("3_qil31")
+
+[node name="WaterProgress" type="ProgressBar" parent="UpperRightControls"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81
+anchor_top = 0.131
+anchor_right = 0.81
+anchor_bottom = 0.131
+offset_left = -251.03
+offset_top = 22.0645
+offset_right = -212.03
+offset_bottom = 134.065
+theme_override_styles/fill = SubResource("StyleBoxFlat_bf7dw")
+fill_mode = 3
+show_percentage = false
+
+[node name="WateringText" type="Label" parent="UpperRightControls"]
+layout_mode = 0
+offset_left = 51.0555
+offset_top = 192.056
+offset_right = 254.056
+offset_bottom = 241.056
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Press \"F\" to collect water 
+and water plants"
+horizontal_alignment = 1
+
+[node name="CooldownText" type="Label" parent="UpperRightControls"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 53.0
+offset_right = 501.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.509286, 0.509286, 0.509286, 1)
+theme_override_font_sizes/font_size = 30
+text = "Seed Cooldown"
+
+[node name="PlantText" type="Label" parent="UpperRightControls"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 194.0
+offset_right = 457.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Press \"E\" to plant"
+
+[node name="SeedProgress" type="TextureProgressBar" parent="UpperRightControls"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 27.0
+offset_right = 498.0
+offset_bottom = 257.0
+max_value = 10.0
+step = 0.05
+fill_mode = 4
+texture_under = ExtResource("1_qbpcd")
+texture_progress = ExtResource("2_nb5fm")
 
 [connection signal="pressed" from="SeedContainer/CommonButton" to="." method="_on_common_button_pressed"]
 [connection signal="pressed" from="SeedContainer/UncommonButton" to="." method="_on_uncommon_button_pressed"]

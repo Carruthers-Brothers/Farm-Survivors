@@ -12,5 +12,5 @@ autostart = true
 [node name="ChunkTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="WaveTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_timer_timeout"]
