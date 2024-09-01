@@ -5,7 +5,9 @@ extends CharacterBody2D
 @onready var health_bar = $HealthBar
 @onready var seed_cooldown = $SeedCooldown
 @onready var game = get_tree().get_first_node_in_group("game")
+@onready var scythe = $Scythe
 
+const SpadeUpgrade = preload("res://Scripts/Weapons/spade_upgrade.gd")
 const SEED = preload("res://Scenes/seed.tscn")
 const SPROUT = preload("res://Scenes/sprout.tscn")
 
@@ -15,8 +17,15 @@ var speed = 100
 var plantable = true
 var water_level = 0.0 # how much water is in the watering can
 var total_xp = 0
+var xp_modifier = 1.0
 var level = 1 # have xp amounts needed for each level
 var attack_speed = 4 
+var water_speed = 50
+var harvest_speed = 50
+
+var direction 
+var watering_target 
+var harvesting_target
 
 # seed inventory for the different types of seed rarities or seed types
 var seeds = { 
@@ -30,12 +39,12 @@ var seeds = {
 signal player_death
 signal level_up
 
+
 func _physics_process(delta):
 	
 	# check if xp amount is enough to level up, then emit level up signal
 	var xp_needed = 100 * level
 	if total_xp >= xp_needed:
-		# print("total xp is " + str(total_xp) + " and xp needed for level " + str(level) + " is " + str(xp_needed))
 		level += 1
 		emit_signal("level_up")
 	
@@ -44,7 +53,7 @@ func _physics_process(delta):
 		plant_seed()
 
 	# movement and animations
-	var direction = Input.get_vector("left", "right", "up", "down") # Input map set for directions in Project->Project Settings->Input Map
+	direction = Input.get_vector("left", "right", "up", "down") # Input map set for directions in Project->Project Settings->Input Map
 	velocity = direction * speed
 	
 	# walking animations
@@ -93,13 +102,19 @@ func _on_seed_cooldown_timeout():
 	
 
 func add_xp(xp_amount):
-	total_xp += xp_amount
+	total_xp += xp_amount * xp_modifier
 
 
 func check_collisions(delta):
 	
+	harvesting_target = null
+	watering_target = null # make sure target is valid every frame
 	var areas = hurtbox.get_overlapping_areas()
+	
 	for area in areas: 
+
+		find_best_target(area) # for watering and harvesting
+		
 		if area.collision_layer == 2: # enemy layer (taking damage)
 			var enemy = area.get_parent()
 			health -= enemy.damage_dealt * delta # if enemies deal different amounts of damage
@@ -112,24 +127,49 @@ func check_collisions(delta):
 			seed.queue_free()
 		elif area.collision_layer == 8: # pools of water layer (filling watering can)
 			if Input.is_action_pressed("water"):
-				var level_change = delta * 50
+				var level_change = delta * water_speed
 				water_level += level_change
 				if water_level > 100: # change to fill up over time while pressing
 					water_level = 100
 				var pond = area.get_owner() # instead of area.get_parent().get_parent()
 				if pond.has_method("reduce_water"): # reduce water level
 					pond.reduce_water(level_change)
-		elif area.collision_layer == 16: # plant layer (watering plants)
-			if Input.is_action_pressed("water"):
-				if water_level > 0:
-					var plant = area.get_parent()
-					var level_change = 60 * delta
-					plant.water_amount += level_change
-					water_level -= level_change
-					if water_level < 0:
-						water_level = 0
-		elif area.collision_layer == 32: # tree layer (harvesting trees)
-			if Input.is_action_pressed("harvest"):
-				var tree = area.get_parent()
-				var harvest = 50 * delta
-				tree.harvest_amount += harvest
+					
+	# water only one thing at a time, and only if it isn't full already
+	if Input.is_action_pressed("water") and watering_target != null:
+		if water_level > 0: # player has water to give the plant
+			var plant = watering_target
+			var level_change = delta * water_speed 
+			if plant.water_amount <= plant.water_needed: # don't water if it doesn't need it
+				plant.water_amount += level_change
+				water_level -= level_change
+				if water_level < 0:
+					water_level = 0
+	# harvest one thing at a time
+	if Input.is_action_pressed("harvest") and harvesting_target != null:
+		var harvest = delta * harvest_speed
+		harvesting_target.harvest_amount += harvest
+
+
+func find_best_target(test_area):
+	# find the best target (if any) when the action "water" is pressed
+	var test_target = test_area.get_parent()
+	if test_area.collision_layer == 16: # plants layer (to water)
+		if watering_target == null:
+			watering_target = test_target
+		else:
+			# find one that needs water, and is closest
+			if test_target.water_amount <= test_target.water_needed: # plant actually needs to be watered, not growing
+				var current_distance = global_position.distance_to(watering_target.global_position)
+				var test_distance = global_position.distance_to(test_target.global_position)
+				if test_distance < current_distance: # closest physical collision
+					watering_target = test_target
+	elif test_area.collision_layer == 32: # harvest layer
+		if harvesting_target == null:
+			harvesting_target = test_target
+		else:
+			# find one that is closest
+			var current_distance = global_position.distance_to(harvesting_target.global_position)
+			var test_distance = global_position.distance_to(test_target.global_position)
+			if test_distance < current_distance: 
+				harvesting_target = test_target

@@ -8,7 +8,7 @@ const _3_RARE_SEED = preload("res://Assets/3-RareSeed.png")
 const _4_EPIC_SEED = preload("res://Assets/4-EpicSeed.png")
 const _5_LEGENDARY_SEED = preload("res://Assets/5-LegendarySeed.png")
 
-var seed_type
+var seed_type = "Common" # default to common
 
 func set_type(name):
 	seed_type = name

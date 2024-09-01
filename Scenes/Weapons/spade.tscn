@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccos0nl2nsylk"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/spade.gd" id="1_14gu7"]
+[ext_resource type="Texture2D" uid="uid://o5ijxwxm7aki" path="res://Assets/spade.png" id="1_u0cv1"]
+
+[node name="Spade" type="Marker2D"]
+script = ExtResource("1_14gu7")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.09, 0.09)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-155.556, -100, 155.556, -100, 155.556, -77.7778, 133.333, -55.5556, 133.333, 22.2222, 166.667, 22.2222, 155.556, 88.8889, 122.222, 111.111, 66.6667, 88.8889, 0, 111.111, -55.5556, 77.7778, -122.222, 111.111, -166.667, 88.8889, -166.667, 22.2222, -133.333, 11.1111, -133.333, -55.5556, -155.556, -77.7778)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_u0cv1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(-11, 0)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_u0cv1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(11, 0)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_u0cv1")
+
+[node name="OnScreen" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="OnScreen" to="." method="_on_on_screen_screen_exited"]

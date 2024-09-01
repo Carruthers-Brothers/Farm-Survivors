@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cdvfuu1hpjn3b" path="res://Scenes/Enemies/bunny.tscn" id="4_05vr8"]
 [ext_resource type="Texture2D" uid="uid://ci2ku4rauvga6" path="res://Assets/background.png" id="4_ejexm"]
 [ext_resource type="PackedScene" uid="uid://dko7aglao6gjw" path="res://Scenes/main_ui.tscn" id="4_lousv"]
-[ext_resource type="PackedScene" uid="uid://c78r1n408b1qa" path="res://Scenes/tree.tscn" id="5_4iydv"]
 [ext_resource type="PackedScene" uid="uid://cocp6168xqrcb" path="res://Scenes/death_menu.tscn" id="5_t8sce"]
 [ext_resource type="PackedScene" uid="uid://c41g2o44k0bnb" path="res://Scenes/pause_menu.tscn" id="7_isgbb"]
 [ext_resource type="PackedScene" path="res://Scenes/upgrade_menu.tscn" id="7_xxlaq"]
@@ -14,6 +13,8 @@
 [ext_resource type="PackedScene" path="res://Scenes/pond.tscn" id="10_leke0"]
 [ext_resource type="PackedScene" uid="uid://cgtm1vef7hjyb" path="res://Scenes/pine_tree.tscn" id="12_qd3ye"]
 [ext_resource type="PackedScene" uid="uid://d1cguchnehga6" path="res://Scenes/Enemies/beaver.tscn" id="13_ydtx4"]
+[ext_resource type="PackedScene" uid="uid://c02srhqbuabys" path="res://Scenes/well.tscn" id="14_7qud0"]
+[ext_resource type="PackedScene" uid="uid://bv266hw3fuh6l" path="res://Scenes/seed.tscn" id="15_vh6ft"]
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_wpwt0")
@@ -22,6 +23,16 @@ script = ExtResource("1_wpwt0")
 
 [node name="Player" parent="." instance=ExtResource("3_iflxp")]
 position = Vector2(2, -2)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
+repeat_size = Vector2(600, 600)
+
+[node name="Grass2" type="Sprite2D" parent="Parallax2D"]
+texture_filter = 2
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ejexm")
+centered = false
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
 
@@ -57,15 +68,6 @@ position = Vector2(218, 32)
 visible = false
 position = Vector2(239, -13)
 
-[node name="Tree" parent="." instance=ExtResource("5_4iydv")]
-position = Vector2(-72, -62)
-
-[node name="Tree2" parent="." instance=ExtResource("5_4iydv")]
-position = Vector2(89, -36)
-
-[node name="PineTree" parent="." instance=ExtResource("12_qd3ye")]
-position = Vector2(50, 68)
-
 [node name="Pond" parent="." instance=ExtResource("10_leke0")]
 visible = false
 z_index = -1
@@ -75,9 +77,14 @@ position = Vector2(105, 62)
 wait_time = 30.0
 autostart = true
 
+[node name="Well" parent="." instance=ExtResource("14_7qud0")]
+position = Vector2(-73, 0)
+
+[node name="Seed2" parent="." instance=ExtResource("15_vh6ft")]
+position = Vector2(38, -30)
+
 [node name="Beaver" parent="." instance=ExtResource("13_ydtx4")]
-visible = false
-position = Vector2(-105, 52)
+position = Vector2(-214, 99)
 
 [connection signal="level_up" from="Player" to="." method="_on_player_level_up"]
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]

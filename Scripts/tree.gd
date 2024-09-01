@@ -6,11 +6,12 @@ extends Node2D
 @onready var harvest_progress_bar = $HarvestProgress/HarvestProgressBar
 @onready var harvest_progress = $HarvestProgress
 @onready var player = get_tree().get_first_node_in_group("player")
-#@onready var sprite_2d = $Sprite2D
-@onready var apple_tree = $AppleTree
-@onready var orange_tree = $OrangeTree
-@onready var blue_tree = $BlueTree
-
+@onready var common_tree = $CommonTree
+@onready var uncommon_tree = $UncommonTree
+@onready var rare_tree = $RareTree
+@onready var epic_tree = $EpicTree
+@onready var legendary_tree = $LegendaryTree
+@onready var minimap = get_tree().get_first_node_in_group("minimap")
 
 const FULL_APPLE_FAST = preload("res://Assets/fullAppleFast.png")
 const APPLE = preload("res://Scenes/apple.tscn")
@@ -22,10 +23,10 @@ var xp_amount # depends on rarity
 var rarity = "Uncommon"
 
 var xp_rarity = {
-	"Common" : 20,
-	"Uncommon" : 40,
-	"Rare" : 60,
-	"Epic" : 80,
+	"Common" : 100,
+	"Uncommon" : 100,
+	"Rare" : 100,
+	"Epic" : 100,
 	"Legendary" : 100
 }
 
@@ -34,13 +35,20 @@ var xp_rarity = {
 
 
 func _ready():
-	var random_tree_graphic = randi_range(0,2)
-	if random_tree_graphic == 0:
-		apple_tree.show()
-	elif random_tree_graphic == 1:
-		orange_tree.show()
-	else:
-		blue_tree.show()
+	
+	minimap.add_sprite(self)
+	
+	match(rarity):
+		"Common":
+			common_tree.show()
+		"Uncommon":
+			uncommon_tree.show()
+		"Rare":
+			rare_tree.show()
+		"Epic":
+			epic_tree.show()
+		"Legendary":
+			legendary_tree.show()
 
 func _process(_delta):
 	
@@ -68,8 +76,10 @@ func _physics_process(delta):
 	for area in enemy_areas:
 		var enemy = area.get_parent()
 		if enemy.enemy_type == "beaver":
-			health -= enemy.damage_dealt * delta # if enemies deal different amounts of damage
-			health_bar.value = health
+			var distance = global_position.distance_to(enemy.global_position)
+			if distance < 5:
+				health -= enemy.damage_dealt * delta # if enemies deal different amounts of damage
+				health_bar.value = health
 			if health <= 0:
 				queue_free()
 

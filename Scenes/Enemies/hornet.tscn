@@ -1,17 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3efixamu42t"]
+[gd_scene load_steps=7 format=3 uid="uid://d3efixamu42t"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/hornet.gd" id="1_o8yyi"]
-[ext_resource type="Texture2D" uid="uid://d3ht8qdie6tgt" path="res://Assets/Hornet.png" id="2_36fvg"]
+[ext_resource type="Texture2D" uid="uid://7kbvgifnd8lj" path="res://Assets/Hornet_SpriteSheet.png" id="2_r20jr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcigc"]
+atlas = ExtResource("2_r20jr")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlt4u"]
+atlas = ExtResource("2_r20jr")
+region = Rect2(250, 0, 250, 250)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q82a3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_36fvg")
+"texture": SubResource("AtlasTexture_lcigc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlt4u")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"fly",
+"speed": 24.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1uv6n"]
@@ -29,6 +40,9 @@ texture_filter = 2
 position = Vector2(-0.353906, -0.646094)
 scale = Vector2(0.0428312, 0.0428312)
 sprite_frames = SubResource("SpriteFrames_q82a3")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.818254
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

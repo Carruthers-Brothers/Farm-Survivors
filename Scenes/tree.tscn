@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://c78r1n408b1qa"]
+[gd_scene load_steps=13 format=3 uid="uid://c78r1n408b1qa"]
 
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_iu674"]
 [ext_resource type="Texture2D" uid="uid://cjnm3u26mr6a5" path="res://Assets/fullAppleFast.png" id="2_3xt8w"]
 [ext_resource type="Texture2D" uid="uid://c0je3ehib4ipt" path="res://Assets/fullOrangeFast1.png" id="2_k8xd7"]
+[ext_resource type="Texture2D" uid="uid://culxc8o72r47a" path="res://Assets/fullGreenFast1.png" id="3_4ujsb"]
 [ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="3_57aaf"]
 [ext_resource type="Texture2D" uid="uid://da12ixuc16pei" path="res://Assets/seed_progress_4.png" id="4_gv7of"]
 [ext_resource type="Texture2D" uid="uid://1onv0wr34mst" path="res://Assets/fullBlueFast1.png" id="4_wbku8"]
+[ext_resource type="Texture2D" uid="uid://glqpcle2vqxq" path="res://Assets/fullPurpleFast1.png" id="5_602kf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_baeno"]
 radius = 9.0
@@ -21,7 +23,7 @@ height = 78.0
 radius = 18.0
 height = 56.0
 
-[node name="Tree" type="StaticBody2D"]
+[node name="Tree" type="StaticBody2D" groups=["tree"]]
 top_level = true
 y_sort_enabled = true
 collision_layer = 0
@@ -36,23 +38,35 @@ shape = SubResource("CircleShape2D_baeno")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -13)
 
-[node name="AppleTree" type="Sprite2D" parent="."]
+[node name="CommonTree" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1, -14)
 scale = Vector2(0.104375, 0.104375)
 texture = ExtResource("2_3xt8w")
 
-[node name="OrangeTree" type="Sprite2D" parent="."]
+[node name="UncommonTree" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(2, -13)
 scale = Vector2(0.0175, 0.0175)
-texture = ExtResource("2_k8xd7")
+texture = ExtResource("3_4ujsb")
 
-[node name="BlueTree" type="Sprite2D" parent="."]
+[node name="RareTree" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(2, -13)
 scale = Vector2(0.0175, 0.0175)
 texture = ExtResource("4_wbku8")
+
+[node name="EpicTree" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -13)
+scale = Vector2(0.0175, 0.0175)
+texture = ExtResource("5_602kf")
+
+[node name="LegendaryTree" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -13)
+scale = Vector2(0.0175, 0.0175)
+texture = ExtResource("2_k8xd7")
 
 [node name="RangeArea" type="Area2D" parent="."]
 visible = false

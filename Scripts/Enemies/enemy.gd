@@ -4,6 +4,7 @@ var speed
 var damage_dealt
 var health
 var enemy_type
+var target
 
 @onready var game = get_tree().get_first_node_in_group("game")
 @onready var player = get_node("/root/Game/Player")
@@ -13,7 +14,7 @@ var enemy_type
 const SEED = preload("res://Scenes/seed.tscn")
 
 func _physics_process(_delta):
-	var target = getTarget()
+	target = getTarget()
 	var direction = global_position.direction_to(target.global_position)
 	velocity = speed * direction
 	
@@ -31,15 +32,15 @@ func take_damage(damage):
 	if health <= 0:
 		# drops a pickup-able seed sometimes
 		var num = randf_range(1,100)
-		if num <= 2: # drop chance
+		if num <= 1: # drop chance
 			create_seed("Legendary")
-		elif num <= 5:
+		elif num <= 3:
 			create_seed("Epic")
-		elif num <= 9:
+		elif num <= 6:
 			create_seed("Rare")
-		elif num <= 14:
+		elif num <= 10:
 			create_seed("Uncommon")
-		elif num <= 20:
+		elif num <= 15:
 			create_seed("Common")
 		queue_free()
 		
@@ -52,4 +53,3 @@ func create_seed(seed_type):
 	seed.global_position = global_position
 	game.add_child(seed)
 	seed.set_type(seed_type)
-

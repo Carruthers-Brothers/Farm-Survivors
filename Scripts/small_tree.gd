@@ -7,6 +7,7 @@ extends Node2D
 @onready var water_progress = $WaterProgress
 @onready var water_progress_bar = $WaterProgress/WaterProgressBar
 @onready var sprite_2d = $Sprite2D
+@onready var minimap = get_tree().get_first_node_in_group("minimap")
 
 var water_needed = 50
 var water_amount = 0.0
@@ -14,6 +15,11 @@ var time = 10
 var rarity
 
 const TREE = preload("res://Scenes/tree.tscn")
+
+
+func _ready():
+	minimap.add_sprite(self)
+
 
 func _process(_delta):
 	
@@ -29,6 +35,7 @@ func _process(_delta):
 
 func _on_growth_timer_timeout():
 	var new_tree = TREE.instantiate()
-	new_tree.global_position = global_position
+	new_tree.global_position = global_position * 0.5
+	minimap.remove_sprite(self)
 	game.add_child(new_tree)
 	queue_free() # remove this after tree spawns in
