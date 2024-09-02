@@ -1,8 +1,7 @@
 extends Control
 
-@onready var common_count = $SeedContainer/CommonButton/CommonCount
-@onready var uncommon_count = $SeedContainer/UncommonButton/UncommonCount
-@onready var seed_count = $SeedContainer/SeedCount
+@onready var common_count = $SeedContainer/TextureRect/CommonButton/CommonCount
+@onready var uncommon_count = $SeedContainer/TextureRect/UncommonButton/UncommonCount
 @onready var water_progress = $UpperRightControls/WaterProgress
 @onready var seed_progress = $UpperRightControls/SeedProgress
 @onready var time = $Time
