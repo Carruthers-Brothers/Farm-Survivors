@@ -648,10 +648,810 @@
 			"60" : [
 				{
 					"enemy" : "bunny",
+					"count" : 4
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"61" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"62" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"63" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"64" : [
+				{
+					"enemy" : "bunny",
+					"count" : 3
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 3
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"65" : [
+				{
+					"enemy" : "bunny",
+					"count" : 1
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 1
+				},
+			]
+		},
+		{
+			"66" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 0
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"67" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"68" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"69" : [
+				{
+					"enemy" : "bunny",
+					"count" : 7
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"70" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"71" : [
+				{
+					"enemy" : "bunny",
+					"count" : 6
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"72" : [
+				{
+					"enemy" : "bunny",
+					"count" : 7
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"73" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"74" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"75" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"76" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"77" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"78" : [
+				{
+					"enemy" : "bunny",
+					"count" : 1
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 1
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"79" : [
+				{
+					"enemy" : "bunny",
+					"count" : 3
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 3
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"80" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"81" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"82" : [
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"83" : [
+				{
+					"enemy" : "bunny",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"84" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"85" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"86" : [
+				{
+					"enemy" : "bunny",
+					"count" : 3
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 3
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"87" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"88" : [
+				{
+					"enemy" : "bunny",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"89" : [
+				{
+					"enemy" : "beaver",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"90" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"91" : [
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"92" : [
+				{
+					"enemy" : "hornet",
+					"count" : 6
+				},
+			]
+		},
+		{
+			"93" : [
+				{
+					"enemy" : "bunny",
+					"count" : 3
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 3
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"94" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"95" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"96" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"97" : [
+				{
+					"enemy" : "bunny",
+					"count" : 6
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"98" : [
+				{
+					"enemy" : "bunny",
+					"count" : 7
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"99" : [
+				{
+					"enemy" : "bunny",
+					"count" : 8
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"100" : [
+				{
+					"enemy" : "bunny",
+					"count" : 9
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 1
+				},
+			]
+		},
+		{
+			"101" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"102" : [
+				{
+					"enemy" : "bunny",
+					"count" : 1
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 1
+				},
+			]
+		},
+		{
+			"103" : [
+				{
+					"enemy" : "bunny",
+					"count" : 2
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"104" : [
+				{
+					"enemy" : "bunny",
+					"count" : 3
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"105" : [
+				{
+					"enemy" : "bunny",
+					"count" : 4
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"106" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 1
+				},
+			]
+		},
+		{
+			"107" : [
+				{
+					"enemy" : "bunny",
+					"count" : 6
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 6
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 2
+				},
+			]
+		},
+		{
+			"108" : [
+				{
+					"enemy" : "bunny",
+					"count" : 7
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 7
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 3
+				},
+			]
+		},
+		{
+			"109" : [
+				{
+					"enemy" : "bunny",
+					"count" : 8
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 8
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 4
+				},
+			]
+		},
+		{
+			"110" : [
+				{
+					"enemy" : "bunny",
+					"count" : 9
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 9
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"111" : [
+				{
+					"enemy" : "bunny",
 					"count" : 10
 				},
 				{
 					"enemy" : "beaver",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 6
+				},
+			]
+		},
+		{
+			"112" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"113" : [
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"114" : [
+				{
+					"enemy" : "hornet",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"115" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 5
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 5
+				},
+			]
+		},
+		{
+			"116" : [
+				{
+					"enemy" : "bunny",
+					"count" : 5
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"117" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"118" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"119" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
+					"count" : 10
+				},
+			]
+		},
+		{
+			"120" : [
+				{
+					"enemy" : "bunny",
+					"count" : 10
+				},
+				{
+					"enemy" : "beaver",
+					"count" : 10
+				},
+				{
+					"enemy" : "hornet",
 					"count" : 10
 				},
 			]
