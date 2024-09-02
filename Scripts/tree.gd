@@ -8,13 +8,10 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var common_tree = $CommonTree
 @onready var uncommon_tree = $UncommonTree
-@onready var rare_tree = $RareTree
-@onready var epic_tree = $EpicTree
-@onready var legendary_tree = $LegendaryTree
 @onready var minimap = get_tree().get_first_node_in_group("minimap")
 
-const FULL_APPLE_FAST = preload("res://Assets/fullAppleFast.png")
 const APPLE = preload("res://Scenes/apple.tscn")
+const PINE_CONE = preload("res://Scenes/pine_cone.tscn")
 
 var target
 var harvest_amount = 0
@@ -24,10 +21,7 @@ var rarity = "Uncommon"
 
 var xp_rarity = {
 	"Common" : 100,
-	"Uncommon" : 100,
-	"Rare" : 100,
-	"Epic" : 100,
-	"Legendary" : 100
+	"Uncommon" : 100
 }
 
 @onready var hurtbox = $Hurtbox
@@ -43,12 +37,6 @@ func _ready():
 			common_tree.show()
 		"Uncommon":
 			uncommon_tree.show()
-		"Rare":
-			rare_tree.show()
-		"Epic":
-			epic_tree.show()
-		"Legendary":
-			legendary_tree.show()
 
 func _process(_delta):
 	
@@ -90,7 +78,12 @@ func _on_timer_timeout():
 
 
 func shoot():
-	var apple = APPLE.instantiate()
-	apple.global_position = marker_2d.global_position # spawn apple projectile at top section of tree
-	apple.target = target
-	marker_2d.add_child(apple) # adding to actual scene
+	var projectile
+	match(rarity):
+		"Common":
+			projectile = APPLE.instantiate()
+			projectile.target = target
+		"Uncommon":
+			projectile = PINE_CONE.instantiate()
+	projectile.global_position = marker_2d.global_position # spawn apple projectile at top section of tree
+	marker_2d.add_child(projectile) # adding to actual scene

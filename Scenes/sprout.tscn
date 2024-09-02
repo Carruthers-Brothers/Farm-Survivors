@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://da2d6ocl2iwew"]
+[gd_scene load_steps=7 format=3 uid="uid://0godev35nn2s"]
 
 [ext_resource type="Script" path="res://Scripts/sprout.gd" id="1_8brtm"]
 [ext_resource type="Texture2D" uid="uid://dkksh5m7t3sgn" path="res://Assets/sapling.png" id="2_jh6vh"]

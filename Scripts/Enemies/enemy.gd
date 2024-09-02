@@ -32,13 +32,7 @@ func take_damage(damage):
 	if health <= 0:
 		# drops a pickup-able seed sometimes
 		var num = randf_range(1,100)
-		if num <= 1: # drop chance
-			create_seed("Legendary")
-		elif num <= 3:
-			create_seed("Epic")
-		elif num <= 6:
-			create_seed("Rare")
-		elif num <= 10:
+		if num <= 10: # drop chance
 			create_seed("Uncommon")
 		elif num <= 15:
 			create_seed("Common")

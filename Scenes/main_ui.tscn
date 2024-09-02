@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dko7aglao6gjw"]
+[gd_scene load_steps=9 format=3 uid="uid://dko7aglao6gjw"]
 
 [ext_resource type="Script" path="res://Scripts/main_ui.gd" id="1_f18wm"]
 [ext_resource type="Texture2D" uid="uid://l3wkalmo13yd" path="res://Assets/seed_progress_back.png" id="1_qbpcd"]
@@ -6,9 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dx2cguyuthq4u" path="res://Assets/watering_can.png" id="3_qil31"]
 [ext_resource type="Texture2D" uid="uid://fuomm85qmwwr" path="res://Assets/1-Common_Seed.png" id="4_hotkq"]
 [ext_resource type="Texture2D" uid="uid://bsactfcec5kk4" path="res://Assets/2-UncommonSeed.png" id="5_x4q4f"]
-[ext_resource type="Texture2D" uid="uid://b5ft2wb281hps" path="res://Assets/3-RareSeed.png" id="6_dg0jm"]
-[ext_resource type="Texture2D" uid="uid://7velahvv6smf" path="res://Assets/4-EpicSeed.png" id="7_vguob"]
-[ext_resource type="Texture2D" uid="uid://bqq1gqtd17fmg" path="res://Assets/5-LegendarySeed.png" id="8_4r5c0"]
 [ext_resource type="PackedScene" uid="uid://teiaaxdnnvmm" path="res://Scenes/minimap.tscn" id="10_uapv7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf7dw"]
@@ -24,38 +21,6 @@ grow_vertical = 2
 script = ExtResource("1_f18wm")
 
 [node name="Minimap" parent="." instance=ExtResource("10_uapv7")]
-
-[node name="SeedProgress" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 1644.0
-offset_top = 17.0
-offset_right = 1863.0
-offset_bottom = 247.0
-max_value = 10.0
-step = 0.05
-fill_mode = 4
-texture_under = ExtResource("1_qbpcd")
-texture_progress = ExtResource("2_nb5fm")
-
-[node name="CooldownText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1644.0
-offset_top = 43.0
-offset_right = 1866.0
-offset_bottom = 85.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.509286, 0.509286, 0.509286, 1)
-theme_override_font_sizes/font_size = 30
-text = "Seed Cooldown"
-
-[node name="PlantText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1687.0
-offset_top = 184.0
-offset_right = 1822.0
-offset_bottom = 207.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Press \"E\" to plant"
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 0
@@ -96,49 +61,23 @@ offset_bottom = 181.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Press \"R\" to harvest trees"
 
-[node name="WateringCan" type="Sprite2D" parent="."]
-position = Vector2(1422.25, 113.25)
-scale = Vector2(0.624444, 0.624444)
-texture = ExtResource("3_qil31")
-
-[node name="WaterProgress" type="ProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.81
-anchor_top = 0.131
-anchor_right = 0.81
-anchor_bottom = 0.131
-offset_left = -43.9502
-offset_top = -83.2301
-offset_right = -4.9502
-offset_bottom = 28.7699
-theme_override_styles/fill = SubResource("StyleBoxFlat_bf7dw")
-fill_mode = 3
-show_percentage = false
-
-[node name="WateringText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1385.25
-offset_top = 193.25
-offset_right = 1588.25
-offset_bottom = 242.25
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Press \"F\" to collect water 
-and water plants"
-horizontal_alignment = 1
-
 [node name="SeedContainer" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 1196.0
-offset_top = 714.0
-offset_right = 1841.0
-offset_bottom = 1025.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -307.0
+offset_top = -311.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="SeedCount" type="Label" parent="SeedContainer"]
 layout_mode = 0
-offset_left = 257.0
+offset_left = 82.0
 offset_top = 16.0
-offset_right = 395.0
+offset_right = 220.0
 offset_bottom = 51.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
@@ -146,9 +85,9 @@ text = "Seed Count"
 
 [node name="PlantingText" type="Label" parent="SeedContainer"]
 layout_mode = 0
-offset_left = 257.0
+offset_left = 72.0
 offset_top = 257.0
-offset_right = 410.0
+offset_right = 225.0
 offset_bottom = 280.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Select Seed to Plant"
@@ -219,107 +158,77 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Uncommon"
 
-[node name="RareButton" type="Button" parent="SeedContainer"]
-layout_mode = 0
-offset_left = 291.0
-offset_top = 70.0
-offset_right = 370.0
-offset_bottom = 148.0
-flat = true
+[node name="UpperRightControls" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -535.0
+offset_bottom = 311.0
+grow_horizontal = 0
 
-[node name="3-rareSeed" type="Sprite2D" parent="SeedContainer/RareButton"]
-position = Vector2(39, 43)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_dg0jm")
+[node name="WateringCan" type="Sprite2D" parent="UpperRightControls"]
+position = Vector2(88.0555, 112.056)
+scale = Vector2(0.624444, 0.624444)
+texture = ExtResource("3_qil31")
 
-[node name="RareCount" type="Label" parent="SeedContainer/RareButton"]
+[node name="WaterProgress" type="ProgressBar" parent="UpperRightControls"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81
+anchor_top = 0.131
+anchor_right = 0.81
+anchor_bottom = 0.131
+offset_left = -251.03
+offset_top = 22.0645
+offset_right = -212.03
+offset_bottom = 134.065
+theme_override_styles/fill = SubResource("StyleBoxFlat_bf7dw")
+fill_mode = 3
+show_percentage = false
+
+[node name="WateringText" type="Label" parent="UpperRightControls"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 125.0
-offset_right = 48.0
-offset_bottom = 171.0
+offset_left = 51.0555
+offset_top = 192.056
+offset_right = 254.056
+offset_bottom = 241.056
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 33
-text = "0"
+text = "Press \"F\" to collect water 
+and water plants"
+horizontal_alignment = 1
 
-[node name="RareName" type="Label" parent="SeedContainer/RareButton"]
+[node name="CooldownText" type="Label" parent="UpperRightControls"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 90.0
-offset_right = 56.0
-offset_bottom = 113.0
+offset_left = 279.0
+offset_top = 53.0
+offset_right = 501.0
+offset_bottom = 95.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
-text = "Rare"
+theme_override_colors/font_shadow_color = Color(0.509286, 0.509286, 0.509286, 1)
+theme_override_font_sizes/font_size = 30
+text = "Seed Cooldown"
 
-[node name="EpicButton" type="Button" parent="SeedContainer"]
+[node name="PlantText" type="Label" parent="UpperRightControls"]
 layout_mode = 0
-offset_left = 410.0
-offset_top = 70.0
-offset_right = 489.0
-offset_bottom = 148.0
-flat = true
-
-[node name="4-epicSeed" type="Sprite2D" parent="SeedContainer/EpicButton"]
-position = Vector2(43, 43)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_vguob")
-
-[node name="EpicCount" type="Label" parent="SeedContainer/EpicButton"]
-layout_mode = 0
-offset_left = 29.0
-offset_top = 125.0
-offset_right = 48.0
-offset_bottom = 171.0
+offset_left = 322.0
+offset_top = 194.0
+offset_right = 457.0
+offset_bottom = 217.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 33
-text = "0"
+text = "Press \"E\" to plant"
 
-[node name="EpicName" type="Label" parent="SeedContainer/EpicButton"]
+[node name="SeedProgress" type="TextureProgressBar" parent="UpperRightControls"]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 92.0
-offset_right = 58.0
-offset_bottom = 115.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
-text = "Epic"
-
-[node name="LegendaryButton" type="Button" parent="SeedContainer"]
-layout_mode = 0
-offset_left = 524.0
-offset_top = 70.0
-offset_right = 603.0
-offset_bottom = 148.0
-flat = true
-
-[node name="5-legendarySeed" type="Sprite2D" parent="SeedContainer/LegendaryButton"]
-position = Vector2(41, 43)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_4r5c0")
-
-[node name="LegendaryCount" type="Label" parent="SeedContainer/LegendaryButton"]
-layout_mode = 0
-offset_left = 29.0
-offset_top = 125.0
-offset_right = 48.0
-offset_bottom = 171.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 33
-text = "0"
-
-[node name="LegendaryName" type="Label" parent="SeedContainer/LegendaryButton"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 92.0
-offset_right = 82.0
-offset_bottom = 115.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
-text = "Legendary"
+offset_left = 279.0
+offset_top = 27.0
+offset_right = 498.0
+offset_bottom = 257.0
+max_value = 10.0
+step = 0.05
+fill_mode = 4
+texture_under = ExtResource("1_qbpcd")
+texture_progress = ExtResource("2_nb5fm")
 
 [connection signal="pressed" from="SeedContainer/CommonButton" to="." method="_on_common_button_pressed"]
 [connection signal="pressed" from="SeedContainer/UncommonButton" to="." method="_on_uncommon_button_pressed"]
-[connection signal="pressed" from="SeedContainer/RareButton" to="." method="_on_rare_button_pressed"]
-[connection signal="pressed" from="SeedContainer/EpicButton" to="." method="_on_epic_button_pressed"]
-[connection signal="pressed" from="SeedContainer/LegendaryButton" to="." method="_on_legendary_button_pressed"]
