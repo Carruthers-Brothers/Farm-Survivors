@@ -112,6 +112,7 @@ position = Vector2(0.199999, -4.45)
 scale = Vector2(0.302439, 0.302866)
 sprite_frames = SubResource("SpriteFrames_ul52s")
 autoplay = "default"
-frame_progress = 0.179751
+frame = 7
+frame_progress = 0.552263
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
