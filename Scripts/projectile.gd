@@ -25,6 +25,7 @@ func _on_area_entered(area):
 	var enemy = area.get_parent()
 	if enemy.has_method("take_damage"):
 		enemy.call_deferred("take_damage", damage)
+		on_queue_free()
 		queue_free()
 
 func reach_destination():
@@ -32,3 +33,6 @@ func reach_destination():
 
 func get_direction():
 	return null
+
+func on_queue_free():
+	return
