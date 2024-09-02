@@ -1,16 +1,12 @@
 extends Control
 
-@onready var common_count = $SeedContainer/CommonButton/CommonCount
-@onready var uncommon_count = $SeedContainer/UncommonButton/UncommonCount
-@onready var rare_count = $SeedContainer/RareButton/RareCount
-@onready var epic_count = $SeedContainer/EpicButton/EpicCount
-@onready var legendary_count = $SeedContainer/LegendaryButton/LegendaryCount
-@onready var seed_count = $SeedContainer/SeedCount
-@onready var water_progress = $WaterProgress
-@onready var seed_progress = $SeedProgress
-@onready var time = $Time
-@onready var level_text = $LevelText
-@onready var level_progress = $LevelProgress
+@onready var common_count = $BottomRightUI/TextureRect/CommonButton/CommonCount
+@onready var uncommon_count = $BottomRightUI/TextureRect/UncommonButton/UncommonCount
+@onready var water_progress = $UpperRightUI/TextureRect/WaterProgress
+@onready var seed_progress = $UpperRightUI/TextureRect/SeedProgress
+@onready var time = $UpperLeftUI/TextureRect/Time
+@onready var level_text = $UpperLeftUI/TextureRect/LevelText
+@onready var level_progress = $UpperLeftUI/TextureRect/LevelProgress
 
 var player
 
@@ -36,9 +32,6 @@ func _process(delta):
 	var seeds_dict = player.seeds
 	common_count.text = str(seeds_dict["Common"])
 	uncommon_count.text = str(seeds_dict["Uncommon"])
-	rare_count.text = str(seeds_dict["Rare"])
-	epic_count.text = str(seeds_dict["Epic"])
-	legendary_count.text = str(seeds_dict["Legendary"])
 	
 	# time formatting to display
 	time_elapsed += delta
@@ -55,12 +48,3 @@ func _on_common_button_pressed():
 
 func _on_uncommon_button_pressed():
 	selected = "Uncommon"
-
-func _on_rare_button_pressed():
-	selected = "Rare"
-
-func _on_epic_button_pressed():
-	selected = "Epic"
-
-func _on_legendary_button_pressed():
-	selected = "Legendary"

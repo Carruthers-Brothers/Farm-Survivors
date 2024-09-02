@@ -10,16 +10,10 @@ const SMALL_TREE = preload("res://Assets/small_tree.png")
 
 const FULL_APPLE_FAST = preload("res://Assets/fullAppleFast.png")
 const FULL_GREEN_FAST_1 = preload("res://Assets/fullGreenFast1.png")
-const FULL_BLUE_FAST_1 = preload("res://Assets/fullBlueFast1.png")
-const FULL_PURPLE_FAST_1 = preload("res://Assets/fullPurpleFast1.png")
-const FULL_ORANGE_FAST_1 = preload("res://Assets/fullOrangeFast1.png")
 
 var tree_sprites = {
 	"Common" : FULL_APPLE_FAST,
 	"Uncommon" : FULL_GREEN_FAST_1,
-	"Rare" : FULL_BLUE_FAST_1,
-	"Epic" : FULL_PURPLE_FAST_1,
-	"Legendary" : FULL_ORANGE_FAST_1
 }
 
 var all_sprites = []

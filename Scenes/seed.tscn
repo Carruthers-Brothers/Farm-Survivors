@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bv266hw3fuh6l"]
 
 [ext_resource type="Script" path="res://Scripts/seed.gd" id="1_1uqu3"]
-[ext_resource type="Texture2D" uid="uid://fuomm85qmwwr" path="res://Assets/1-Common_Seed.png" id="1_ute7j"]
+[ext_resource type="Texture2D" uid="uid://bsactfcec5kk4" path="res://Assets/2-UncommonSeed.png" id="2_801ly"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihf55"]
 radius = 3.12013
@@ -24,4 +24,4 @@ shape = SubResource("CapsuleShape2D_ihf55")
 position = Vector2(-1, 6)
 rotation = 0.166765
 scale = Vector2(0.0382881, 0.0382882)
-texture = ExtResource("1_ute7j")
+texture = ExtResource("2_801ly")

@@ -24,8 +24,16 @@ script = ExtResource("1_wpwt0")
 position = Vector2(2, -2)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
 visible = false
 repeat_size = Vector2(600, 600)
+script = null
 
 [node name="Grass2" type="Sprite2D" parent="Parallax2D"]
 texture_filter = 2

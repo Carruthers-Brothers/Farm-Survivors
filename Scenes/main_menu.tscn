@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://gcjic263ikf6"]
+[gd_scene load_steps=7 format=3 uid="uid://gcjic263ikf6"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_mpwcj"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="3_b46el"]
+[ext_resource type="Texture2D" uid="uid://dqnxwos07ckmu" path="res://Assets/ui_frame.png" id="4_kopx3"]
 [ext_resource type="Texture2D" uid="uid://ci2ku4rauvga6" path="res://Assets/background.png" id="9_3jok2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbygg"]
+texture = ExtResource("4_kopx3")
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8tpw"]
+texture = ExtResource("4_kopx3")
+expand_margin_bottom = 4.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +20,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_mpwcj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -22,9 +34,15 @@ texture = ExtResource("9_3jok2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = -186.0
+offset_right = 283.5
+offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
@@ -33,6 +51,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_b46el")
 theme_override_font_sizes/font_size = 64
 text = "Johnny Towerseed"
 horizontal_alignment = 1
@@ -51,7 +70,9 @@ texture_filter = 2
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_b46el")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_dbygg")
 text = "Start"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
@@ -62,7 +83,9 @@ alignment = 1
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_b46el")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_r8tpw")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
