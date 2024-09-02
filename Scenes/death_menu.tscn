@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cocp6168xqrcb"]
+[gd_scene load_steps=7 format=3 uid="uid://cocp6168xqrcb"]
 
 [ext_resource type="Script" path="res://Scripts/death_menu.gd" id="1_0khpw"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_xtx0r"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b2hb8"]
 
@@ -66,6 +67,7 @@ theme_override_constants/separation = 60
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xtx0r")
 theme_override_font_sizes/font_size = 60
 text = "You died!"
 horizontal_alignment = 1
@@ -73,12 +75,14 @@ vertical_alignment = 1
 
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xtx0r")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_614ln")
 text = "Restart"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xtx0r")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_gv5bp")
 text = "Quit"
