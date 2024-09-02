@@ -1,12 +1,12 @@
 extends Control
 
-@onready var common_count = $SeedContainer/TextureRect/CommonButton/CommonCount
-@onready var uncommon_count = $SeedContainer/TextureRect/UncommonButton/UncommonCount
-@onready var water_progress = $UpperRightControls/WaterProgress
-@onready var seed_progress = $UpperRightControls/SeedProgress
-@onready var time = $Time
-@onready var level_text = $LevelText
-@onready var level_progress = $LevelProgress
+@onready var common_count = $BottomRightUI/TextureRect/CommonButton/CommonCount
+@onready var uncommon_count = $BottomRightUI/TextureRect/UncommonButton/UncommonCount
+@onready var water_progress = $UpperRightUI/TextureRect/WaterProgress
+@onready var seed_progress = $UpperRightUI/TextureRect/SeedProgress
+@onready var time = $UpperLeftUI/TextureRect/Time
+@onready var level_text = $UpperLeftUI/TextureRect/LevelText
+@onready var level_progress = $UpperLeftUI/TextureRect/LevelProgress
 
 var player
 

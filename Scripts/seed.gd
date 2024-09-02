@@ -14,7 +14,5 @@ func set_type(name):
 			sprite_2d.texture = _1_COMMON_SEED
 		"Uncommon":
 			sprite_2d.texture = _2_UNCOMMON_SEED
-			sprite_2d.scale.x *= 2
-			sprite_2d.scale.y *= 2
 		_:
 			sprite_2d.texture = _1_COMMON_SEED
