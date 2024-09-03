@@ -13,11 +13,10 @@ func _ready():
 func get_direction():
 	return direction
 	
-func on_queue_free():
+func self_destruct():
 	sprite_2d.hide()
 	animated_sprite_2d.show()
 	animated_sprite_2d.play('default')
-	animated_sprite_2d.hide()
 	# drops a pickup-able seed sometimes
 	var num = randf_range(1,100)
 	if num <= 10: # drop chance
@@ -28,3 +27,7 @@ func create_seed(seed_type):
 	seed.global_position = global_position
 	game.add_child(seed)
 	seed.set_type(seed_type)
+
+
+func _on_animated_sprite_2d_animation_finished():
+	queue_free()

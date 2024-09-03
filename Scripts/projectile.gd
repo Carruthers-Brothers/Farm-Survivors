@@ -9,9 +9,8 @@ var distance_traveled = 0
 func _physics_process(delta):
 	print(distance_to_travel)
 	if distance_traveled > distance_to_travel:
+		reach_destination()
 		return
-		#reach_destination()
-		#return
 	
 	var direction = get_direction()
 	
@@ -25,8 +24,7 @@ func _on_area_entered(area):
 	var enemy = area.get_parent()
 	if enemy.has_method("take_damage"):
 		enemy.call_deferred("take_damage", damage)
-		on_queue_free()
-		queue_free()
+		self_destruct()
 
 func reach_destination():
 	return
@@ -34,5 +32,5 @@ func reach_destination():
 func get_direction():
 	return null
 
-func on_queue_free():
-	return
+func self_destruct():
+	queue_free()
