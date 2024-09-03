@@ -4,13 +4,19 @@ extends Node2D
 @onready var player = $Player
 @onready var death_menu = $CanvasLayer/DeathMenu
 @onready var upgrade_menu = $CanvasLayer/UpgradeMenu
+@onready var victory_menu = $CanvasLayer/VictoryMenu
 @onready var camera_2d = $Player/Camera2D
 
 const POND = preload("res://Scenes/pond.tscn")
 
 
+func _on_main_ui_victory():
+	victory_menu.show()
+	get_tree().paused = true
+
+
 func _on_player_player_death():
-	camera_2d.zoom = Vector2(1,1)
+	# camera_2d.zoom = Vector2(1,1)
 	death_menu.show()
 	get_tree().paused = true
 

@@ -17,7 +17,7 @@ var target
 var harvest_amount = 0
 var health = 100
 var xp_amount # depends on rarity
-var rarity = "Uncommon"
+var rarity = "Common"
 
 var xp_rarity = {
 	"Common" : 100,

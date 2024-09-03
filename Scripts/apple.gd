@@ -12,5 +12,5 @@ func get_direction():
 	if is_instance_valid(target):
 		if target != null: # sometimes will say that null is valid instance?
 			return global_position.direction_to(target.global_position) 
-
-
+		else:
+			return null

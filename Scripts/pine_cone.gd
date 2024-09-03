@@ -7,5 +7,3 @@ func _ready():
 
 func get_direction():
 	return direction
-
-

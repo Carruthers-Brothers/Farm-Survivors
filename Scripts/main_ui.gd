@@ -13,6 +13,7 @@ var player
 var selected = "Common" # whatever type of seed player currently has selected to plant
 var time_elapsed = 0.0
 
+signal victory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +42,9 @@ func _process(delta):
 		time.text = "0" + str(minutes) + ":0" + str(seconds) 
 	else:
 		time.text = "0" + str(minutes) + ":" + str(seconds)
+		
+	if time_elapsed >= 600: # 600
+		emit_signal("victory")
 
 
 func _on_common_button_pressed():

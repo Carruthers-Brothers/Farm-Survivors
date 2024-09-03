@@ -35,7 +35,7 @@ func _process(_delta):
 
 func _on_growth_timer_timeout():
 	var new_tree = TREE.instantiate()
-	new_tree.global_position = global_position * 0.5
+	new_tree.global_position = global_position
 	new_tree.rarity = rarity
 	minimap.remove_sprite(self)
 	game.add_child(new_tree)

@@ -37,15 +37,7 @@ size = Vector2i(200, 200)
 render_target_update_mode = 4
 
 [node name="Parallax2D" type="Parallax2D" parent="SubViewportContainer/SubViewport"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-editor_description = ""
 repeat_size = Vector2(300, 300)
-script = null
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/Parallax2D"]
 texture_filter = 2

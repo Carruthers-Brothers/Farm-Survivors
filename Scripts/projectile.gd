@@ -9,14 +9,16 @@ var distance_traveled = 0
 func _physics_process(delta):
 	print(distance_to_travel)
 	if distance_traveled > distance_to_travel:
-		return
-		#reach_destination()
+		# return
+		reach_destination()
 		#return
 	
 	var direction = get_direction()
 	
 	if direction != null:
 		position += direction * speed * delta # not a character body, so doesn't have move_and_slide(), need delta
+	else:
+		queue_free()
 		
 	distance_traveled += speed * delta
 

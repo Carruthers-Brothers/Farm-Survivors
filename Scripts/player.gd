@@ -4,8 +4,8 @@ extends CharacterBody2D
 @onready var hurtbox = $Hurtbox
 @onready var health_bar = $HealthBar
 @onready var seed_cooldown = $SeedCooldown
-@onready var game = get_tree().get_first_node_in_group("game")
 @onready var scythe = $Scythe
+@onready var game = get_tree().get_first_node_in_group("game")
 
 const SpadeUpgrade = preload("res://Scripts/Weapons/spade_upgrade.gd")
 const SEED = preload("res://Scenes/seed.tscn")

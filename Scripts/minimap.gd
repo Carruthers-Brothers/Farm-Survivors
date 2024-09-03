@@ -26,7 +26,6 @@ func _process(delta):
 
 
 func add_sprite(plant):
-	print("adding sprite plant ", plant.name)
 	var new_sprite = Sprite2D.new()
 	if plant.name == "Tree":
 		new_sprite.texture = tree_sprites[plant.rarity]
@@ -38,7 +37,7 @@ func add_sprite(plant):
 		new_sprite.texture = SAPLING
 		new_sprite.scale = Vector2(.1, .1)
 	# new_sprite.scale = Vector2(.01, .01) # might have to do different scales for each one
-	new_sprite.position = plant.position
+	new_sprite.position = plant.position * 0.5
 	if sub_viewport != null:
 		sub_viewport.add_child(new_sprite)
 		all_sprites.append(new_sprite)
@@ -47,7 +46,8 @@ func add_sprite(plant):
 func remove_sprite(plant): # find the one with the same global position?
 	var index = 0
 	for sprite in all_sprites:
-		if sprite.position == plant.position: # just remove based on the 
+		var adjusted_plant_position = plant.position * 0.5
+		if sprite.position == adjusted_plant_position: # just remove based on the position
 			all_sprites.remove_at(index)
 			sprite.queue_free()
 		index += 1

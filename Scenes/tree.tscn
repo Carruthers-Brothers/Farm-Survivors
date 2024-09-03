@@ -23,13 +23,15 @@ height = 56.0
 [node name="Tree" type="StaticBody2D" groups=["tree"]]
 top_level = true
 y_sort_enabled = true
+position = Vector2(-2, -12)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_iu674")
 
 [node name="Base" type="CollisionShape2D" parent="."]
+visible = false
 y_sort_enabled = true
-position = Vector2(0, 2)
+position = Vector2(2, 8)
 shape = SubResource("CircleShape2D_baeno")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -37,7 +39,7 @@ position = Vector2(0, -13)
 
 [node name="CommonTree" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1, -14)
+position = Vector2(4, -2)
 scale = Vector2(0.104375, 0.104375)
 texture = ExtResource("2_3xt8w")
 
@@ -96,6 +98,7 @@ texture_progress = ExtResource("4_gv7of")
 metadata/_edit_use_anchors_ = true
 
 [node name="HarvestArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 0
 
