@@ -31,8 +31,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -528.0
-offset_top = -236.0
+offset_left = -480.0
+offset_top = -216.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 16
@@ -46,10 +46,10 @@ stretch_mode = 4
 
 [node name="PlantingText" type="Label" parent="BottomRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 127.0
-offset_top = 44.0
-offset_right = 385.0
-offset_bottom = 81.0
+offset_left = 104.0
+offset_top = 32.0
+offset_right = 362.0
+offset_bottom = 69.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
 theme_override_font_sizes/font_size = 24
@@ -65,26 +65,26 @@ flat = true
 
 [node name="CommonDash" type="Label" parent="BottomRightUI/TextureRect/CommonButton"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 15.0
-offset_right = 112.0
-offset_bottom = 72.0
+offset_left = 69.0
+offset_top = 3.0
+offset_right = 89.0
+offset_bottom = 60.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
 theme_override_font_sizes/font_size = 32
 text = "-"
 
 [node name="1-commonSeed" type="Sprite2D" parent="BottomRightUI/TextureRect/CommonButton"]
-position = Vector2(36, 42)
+position = Vector2(13, 30)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_b44ag")
 
 [node name="CommonCount" type="Label" parent="BottomRightUI/TextureRect/CommonButton"]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 15.0
-offset_right = 162.0
-offset_bottom = 66.0
+offset_left = 117.0
+offset_top = 3.0
+offset_right = 139.0
+offset_bottom = 54.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
 theme_override_font_sizes/font_size = 32
@@ -100,26 +100,26 @@ flat = true
 
 [node name="UncommonDash" type="Label" parent="BottomRightUI/TextureRect/UncommonButton"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 15.0
-offset_right = 112.0
-offset_bottom = 72.0
+offset_left = 69.0
+offset_top = 3.0
+offset_right = 89.0
+offset_bottom = 60.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
 theme_override_font_sizes/font_size = 32
 text = "-"
 
 [node name="2-uncommonSeed" type="Sprite2D" parent="BottomRightUI/TextureRect/UncommonButton"]
-position = Vector2(36, 42)
+position = Vector2(13, 30)
 scale = Vector2(0.2, 0.188)
 texture = ExtResource("6_lf6q3")
 
 [node name="UncommonCount" type="Label" parent="BottomRightUI/TextureRect/UncommonButton"]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 15.0
-offset_right = 162.0
-offset_bottom = 72.0
+offset_left = 117.0
+offset_top = 3.0
+offset_right = 139.0
+offset_bottom = 60.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
 theme_override_font_sizes/font_size = 32
@@ -130,19 +130,21 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -716.0
-offset_bottom = 336.0
+offset_left = -480.0
+offset_bottom = 216.0
 grow_horizontal = 0
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
 [node name="TextureRect" type="TextureRect" parent="UpperRightUI"]
 layout_mode = 2
 texture = ExtResource("3_vcc65")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="WateringCan" type="Sprite2D" parent="UpperRightUI/TextureRect"]
-position = Vector2(133.056, 116.056)
-scale = Vector2(0.624444, 0.624444)
+position = Vector2(112, 72)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_qil31")
 
 [node name="WaterProgress" type="ProgressBar" parent="UpperRightUI/TextureRect"]
@@ -152,33 +154,33 @@ anchor_left = 0.81
 anchor_top = 0.131
 anchor_right = 0.81
 anchor_bottom = 0.131
-offset_left = -322.944
-offset_top = 24.1355
-offset_right = -283.944
-offset_bottom = 136.136
+offset_left = -213.84
+offset_top = 21.8
+offset_right = -188.84
+offset_bottom = 77.8
 theme_override_styles/fill = SubResource("StyleBoxFlat_bf7dw")
 fill_mode = 3
 show_percentage = false
 
 [node name="WateringText" type="Label" parent="UpperRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 71.0555
-offset_top = 193.055
-offset_right = 338.056
-offset_bottom = 256.055
+offset_left = 24.0
+offset_top = 112.0
+offset_right = 264.0
+offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Press \"F\" to collect water 
 and water plants"
 horizontal_alignment = 1
 
 [node name="SeedProgress" type="TextureProgressBar" parent="UpperRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 44.0
-offset_right = 609.0
-offset_bottom = 274.0
+offset_left = 232.0
+offset_top = -16.0
+offset_right = 451.0
+offset_bottom = 214.0
 max_value = 10.0
 step = 0.05
 fill_mode = 4
@@ -187,79 +189,81 @@ texture_progress = ExtResource("2_nb5fm")
 
 [node name="CooldownText" type="Label" parent="UpperRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 63.0
-offset_right = 621.0
-offset_bottom = 110.0
+offset_left = 248.0
+offset_top = 32.0
+offset_right = 440.0
+offset_bottom = 70.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.509286, 0.509286, 0.509286, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Seed Cooldown"
 
 [node name="PlantText" type="Label" parent="UpperRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 216.0
-offset_right = 605.0
-offset_bottom = 251.0
+offset_left = 264.0
+offset_top = 138.0
+offset_right = 416.0
+offset_bottom = 162.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Press \"E\" to plant"
 
 [node name="UpperLeftUI" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 716.0
-offset_bottom = 316.0
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+offset_right = 480.0
+offset_bottom = 216.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
 
 [node name="TextureRect" type="TextureRect" parent="UpperLeftUI"]
 layout_mode = 2
 texture = ExtResource("3_vcc65")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Time" type="Label" parent="UpperLeftUI/TextureRect"]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 97.0
-offset_right = 288.0
-offset_bottom = 189.0
+offset_left = 48.0
+offset_top = 62.0
+offset_right = 200.0
+offset_bottom = 136.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 48
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelText" type="Label" parent="UpperLeftUI/TextureRect"]
 layout_mode = 0
-offset_left = 423.0
-offset_top = 70.0
-offset_right = 532.0
-offset_bottom = 117.0
+offset_left = 280.0
+offset_top = 40.0
+offset_right = 368.0
+offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Level 1"
 
 [node name="LevelProgress" type="ProgressBar" parent="UpperLeftUI/TextureRect"]
 layout_mode = 0
-offset_left = 389.0
-offset_top = 137.0
-offset_right = 577.0
-offset_bottom = 164.0
+offset_left = 232.0
+offset_top = 88.0
+offset_right = 404.0
+offset_bottom = 115.0
 show_percentage = false
 
 [node name="HarvestingText" type="Label" parent="UpperLeftUI/TextureRect"]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 189.0
-offset_right = 611.0
-offset_bottom = 219.0
+offset_left = 216.0
+offset_top = 128.0
+offset_right = 432.0
+offset_bottom = 152.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Press \"R\" to harvest trees"
 
 [connection signal="pressed" from="BottomRightUI/TextureRect/CommonButton" to="." method="_on_common_button_pressed"]
