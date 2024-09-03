@@ -16,9 +16,9 @@ func get_direction():
 func on_queue_free():
 	sprite_2d.hide()
 	animated_sprite_2d.show()
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play('default')
 	animated_sprite_2d.hide()
-		# drops a pickup-able seed sometimes
+	# drops a pickup-able seed sometimes
 	var num = randf_range(1,100)
 	if num <= 10: # drop chance
 		create_seed("Uncommon")

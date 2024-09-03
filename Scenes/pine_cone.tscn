@@ -108,10 +108,10 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_xsnaf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0.199999, -4.45)
 scale = Vector2(0.302439, 0.302866)
 sprite_frames = SubResource("SpriteFrames_ul52s")
-autoplay = "default"
 frame = 7
 frame_progress = 0.552263
 

@@ -31,8 +31,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -716.0
-offset_top = -374.0
+offset_left = -528.0
+offset_top = -236.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 16
@@ -41,86 +41,88 @@ theme_override_constants/margin_bottom = 16
 [node name="TextureRect" type="TextureRect" parent="BottomRightUI"]
 layout_mode = 2
 texture = ExtResource("3_vcc65")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="PlantingText" type="Label" parent="BottomRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 191.0
-offset_top = 67.0
-offset_right = 519.0
-offset_bottom = 114.0
+offset_left = 127.0
+offset_top = 44.0
+offset_right = 385.0
+offset_bottom = 81.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Select Seed to Plant"
 
 [node name="CommonButton" type="Button" parent="BottomRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 117.0
-offset_right = 229.0
-offset_bottom = 296.0
+offset_left = 64.0
+offset_top = 87.0
+offset_right = 144.0
+offset_bottom = 172.0
 flat = true
 
 [node name="CommonDash" type="Label" parent="BottomRightUI/TextureRect/CommonButton"]
 layout_mode = 0
-offset_left = 151.0
-offset_top = 46.0
-offset_right = 185.0
-offset_bottom = 127.0
+offset_left = 92.0
+offset_top = 15.0
+offset_right = 112.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 32
 text = "-"
 
 [node name="1-commonSeed" type="Sprite2D" parent="BottomRightUI/TextureRect/CommonButton"]
-position = Vector2(68, 89)
-scale = Vector2(0.4, 0.4)
+position = Vector2(36, 42)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_b44ag")
 
 [node name="CommonCount" type="Label" parent="BottomRightUI/TextureRect/CommonButton"]
 layout_mode = 0
-offset_left = 205.0
-offset_top = 48.0
-offset_right = 243.0
-offset_bottom = 129.0
+offset_left = 140.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="UncommonButton" type="Button" parent="BottomRightUI/TextureRect"]
 layout_mode = 0
-offset_left = 361.0
-offset_top = 120.0
-offset_right = 520.0
-offset_bottom = 294.0
+offset_left = 272.0
+offset_top = 87.0
+offset_right = 352.0
+offset_bottom = 171.0
 flat = true
 
 [node name="UncommonDash" type="Label" parent="BottomRightUI/TextureRect/UncommonButton"]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 40.0
-offset_right = 190.0
-offset_bottom = 121.0
+offset_left = 92.0
+offset_top = 15.0
+offset_right = 112.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 32
 text = "-"
 
 [node name="2-uncommonSeed" type="Sprite2D" parent="BottomRightUI/TextureRect/UncommonButton"]
-position = Vector2(68, 88)
-scale = Vector2(0.4, 0.4)
+position = Vector2(36, 42)
+scale = Vector2(0.2, 0.188)
 texture = ExtResource("6_lf6q3")
 
 [node name="UncommonCount" type="Label" parent="BottomRightUI/TextureRect/UncommonButton"]
 layout_mode = 0
-offset_left = 222.0
-offset_top = 47.0
-offset_right = 260.0
-offset_bottom = 128.0
+offset_left = 140.0
+offset_top = 15.0
+offset_right = 162.0
+offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_acff7")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="UpperRightUI" type="MarginContainer" parent="."]
