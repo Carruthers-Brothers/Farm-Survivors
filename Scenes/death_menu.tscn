@@ -1,35 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cocp6168xqrcb"]
+[gd_scene load_steps=6 format=3 uid="uid://cocp6168xqrcb"]
 
 [ext_resource type="Script" path="res://Scripts/death_menu.gd" id="1_0khpw"]
 [ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_xtx0r"]
+[ext_resource type="Texture2D" uid="uid://dqnxwos07ckmu" path="res://Assets/ui_frame.png" id="3_dv645"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b2hb8"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k6jcp"]
+texture = ExtResource("3_dv645")
+expand_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_614ln"]
-texture = SubResource("PlaceholderTexture2D_b2hb8")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-expand_margin_left = 20.0
-expand_margin_top = 10.0
-expand_margin_right = 20.0
-expand_margin_bottom = 10.0
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_upq0n"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gv5bp"]
-texture = SubResource("PlaceholderTexture2D_upq0n")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-expand_margin_left = 20.0
-expand_margin_top = 10.0
-expand_margin_right = 20.0
-expand_margin_bottom = 10.0
-modulate_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6vo2"]
+texture = ExtResource("3_dv645")
+expand_margin_bottom = 4.0
 
 [node name="DeathMenu" type="Control"]
 process_mode = 3
@@ -42,50 +23,75 @@ grow_vertical = 2
 script = ExtResource("1_0khpw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1917.0
-offset_bottom = 1076.0
-color = Color(0.290196, 0, 0, 0.501961)
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -125.0
-offset_right = 90.0
-offset_bottom = 125.0
+offset_left = -958.5
+offset_top = -538.0
+offset_right = 958.5
+offset_bottom = 538.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.290196, 0, 0, 0.501961)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 60
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = -186.0
+offset_right = 283.5
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_xtx0r")
-theme_override_font_sizes/font_size = 60
-text = "You died!"
+theme_override_font_sizes/font_size = 64
+text = "You Died!"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Control" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 2
+alignment = 1
+
+[node name="RestartButton" type="Button" parent="VBoxContainer/Control/HBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_xtx0r")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_614ln")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_k6jcp")
 text = "Restart"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
 layout_mode = 2
+alignment = 1
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/Control/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_xtx0r")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_gv5bp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_m6vo2")
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer2/QuitButton" to="." method="_on_quit_pressed"]

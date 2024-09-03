@@ -1,10 +1,96 @@
-[gd_scene load_steps=4 format=3 uid="uid://biueddgxppg80"]
+[gd_scene load_steps=17 format=3 uid="uid://biueddgxppg80"]
 
 [ext_resource type="Script" path="res://Scripts/pine_cone.gd" id="1_xjdgj"]
 [ext_resource type="Texture2D" uid="uid://qyv8q87ba82e" path="res://Assets/pinecone_2.png" id="2_578b4"]
+[ext_resource type="Texture2D" uid="uid://dek1y7ccyahmb" path="res://Assets/pine explosion animation.png" id="3_rwpwg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsnaf"]
 radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j74v"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(0, 0, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1kyb"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(164, 0, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy63x"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(328, 0, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0hcq"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(492, 0, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wdkj"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(656, 0, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txq3m"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(820, 0, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjl5j"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(0, 314, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l22u"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(164, 314, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quioq"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(328, 314, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywhxl"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(492, 314, 164, 314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jauip"]
+atlas = ExtResource("3_rwpwg")
+region = Rect2(656, 314, 164, 314)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ul52s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j74v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1kyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy63x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0hcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wdkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txq3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjl5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l22u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quioq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywhxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jauip")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="PineCone" type="Area2D"]
 top_level = true
@@ -21,4 +107,13 @@ texture = ExtResource("2_578b4")
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_xsnaf")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0.199999, -4.45)
+scale = Vector2(0.302439, 0.302866)
+sprite_frames = SubResource("SpriteFrames_ul52s")
+frame = 7
+frame_progress = 0.552263
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
