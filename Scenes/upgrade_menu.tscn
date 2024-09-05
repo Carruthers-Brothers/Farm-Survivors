@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbik38nrtmm07"]
+[gd_scene load_steps=5 format=3 uid="uid://bbik38nrtmm07"]
 
 [ext_resource type="Script" path="res://Scripts/upgrade_menu.gd" id="1_hexv2"]
+[ext_resource type="Texture2D" uid="uid://n3sn23msq7au" path="res://Assets/Level_Up_Screen_Ropes_Wide.png" id="2_lrolw"]
+[ext_resource type="Texture2D" uid="uid://ffy8kdbahecc" path="res://Assets/Board.png" id="3_4a0k3"]
+[ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="4_vytr7"]
 
 [node name="UpgradeMenu" type="Control"]
 process_mode = 3
@@ -8,135 +11,158 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 35.0
+offset_right = 13.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hexv2")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -490.0
-offset_top = -431.0
-offset_right = 490.0
-offset_bottom = 431.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0666667, 0.635294, 0.6, 0.478431)
+[node name="UpgradeBackground" type="Sprite2D" parent="."]
+position = Vector2(935, 669)
+scale = Vector2(0.743667, 0.743667)
+texture = ExtResource("2_lrolw")
+
+[node name="Title" type="Label" parent="UpgradeBackground"]
+offset_left = -505.603
+offset_top = -777.23
+offset_right = 462.397
+offset_bottom = -676.23
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vytr7")
+theme_override_font_sizes/font_size = 70
+text = "Level Up! Select an upgrade"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 474.0
-offset_top = 106.0
-offset_right = 1448.0
-offset_bottom = 971.0
-
-[node name="UpgradeButton1" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.234
-anchor_top = 0.301
-anchor_right = 0.234
-anchor_bottom = 0.301
-offset_left = 198.72
-offset_top = -96.08
-offset_right = 788.72
-offset_bottom = 65.92
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 258.0
+offset_top = 242.0
+offset_right = 258.0
+offset_bottom = 242.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="UpgradeTitle1" type="Label" parent="UpgradeButton1"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 28.0
-offset_right = 260.0
-offset_bottom = 64.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureButton1" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_4a0k3")
+
+[node name="UpgradeTitle1" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton1"]
+layout_mode = 2
+offset_left = 177.143
+offset_top = 54.2857
+offset_right = 1509.14
+offset_bottom = 105.286
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.746913, 0.53755, 0.451138, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("4_vytr7")
+theme_override_font_sizes/font_size = 35
 text = "First Upgrade Title"
 
-[node name="UpgradeDescription1" type="Label" parent="UpgradeButton1"]
-layout_mode = 0
-offset_left = 62.0
-offset_top = 89.0
-offset_right = 322.0
-offset_bottom = 125.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
+[node name="UpgradeDescription1" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton1"]
+layout_mode = 2
+offset_left = 228.571
+offset_top = 130.0
+offset_right = 1560.57
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.745098, 0.537255, 0.45098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("4_vytr7")
+theme_override_font_sizes/font_size = 24
 text = "Description of ability for this power."
 
-[node name="UpgradeButton2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.234
-anchor_top = 0.301
-anchor_right = 0.234
-anchor_bottom = 0.301
-offset_left = 200.72
-offset_top = 133.92
-offset_right = 790.72
-offset_bottom = 295.92
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
 
-[node name="UpgradeTitle2" type="Label" parent="UpgradeButton2"]
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("3_4a0k3")
+
+[node name="UpgradeTitle2" type="Label" parent="VBoxContainer/HBoxContainer2/TextureButton2"]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 28.0
-offset_right = 260.0
-offset_bottom = 64.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+offset_left = 169.171
+offset_top = 51.7301
+offset_right = 504.171
+offset_bottom = 102.73
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.746913, 0.53755, 0.451138, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("4_vytr7")
+theme_override_font_sizes/font_size = 35
 text = "Second Upgrade Title"
 
-[node name="UpgradeDescription2" type="Label" parent="UpgradeButton2"]
+[node name="UpgradeDescription2" type="Label" parent="VBoxContainer/HBoxContainer2/TextureButton2"]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 89.0
-offset_right = 322.0
-offset_bottom = 125.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
+offset_left = 232.086
+offset_top = 128.626
+offset_right = 838.086
+offset_bottom = 177.626
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.745098, 0.537255, 0.45098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("4_vytr7")
+theme_override_font_sizes/font_size = 24
 text = "Description of ability for this power."
 
-[node name="UpgradeButton3" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.234
-anchor_top = 0.301
-anchor_right = 0.234
-anchor_bottom = 0.301
-offset_left = 200.72
-offset_top = 372.92
-offset_right = 790.72
-offset_bottom = 534.92
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
 
-[node name="UpgradeTitle3" type="Label" parent="UpgradeButton3"]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 31.0
-offset_top = 28.0
-offset_right = 260.0
-offset_bottom = 64.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("3_4a0k3")
+
+[node name="UpgradeTitle3" type="Label" parent="VBoxContainer/HBoxContainer3/TextureButton3"]
+layout_mode = 0
+offset_left = 169.171
+offset_top = 51.7301
+offset_right = 504.171
+offset_bottom = 102.73
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.746913, 0.53755, 0.451138, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("4_vytr7")
+theme_override_font_sizes/font_size = 35
 text = "Third Upgrade Title"
 
-[node name="UpgradeDescription3" type="Label" parent="UpgradeButton3"]
+[node name="UpgradeDescription3" type="Label" parent="VBoxContainer/HBoxContainer3/TextureButton3"]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 89.0
-offset_right = 322.0
-offset_bottom = 125.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 15
+offset_left = 232.086
+offset_top = 128.626
+offset_right = 838.086
+offset_bottom = 177.626
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.745098, 0.537255, 0.45098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("4_vytr7")
+theme_override_font_sizes/font_size = 24
 text = "Description of ability for this power."
 
-[connection signal="pressed" from="UpgradeButton1" to="." method="_on_upgrade_button_1_pressed"]
-[connection signal="pressed" from="UpgradeButton2" to="." method="_on_upgrade_button_2_pressed"]
-[connection signal="pressed" from="UpgradeButton3" to="." method="_on_upgrade_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton1" to="." method="_on_texture_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/TextureButton3" to="." method="_on_texture_button_3_pressed"]

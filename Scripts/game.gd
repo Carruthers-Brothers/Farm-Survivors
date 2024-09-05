@@ -16,7 +16,6 @@ func _on_main_ui_victory():
 
 
 func _on_player_player_death():
-	# camera_2d.zoom = Vector2(1,1)
 	death_menu.show()
 	get_tree().paused = true
 

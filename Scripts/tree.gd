@@ -18,6 +18,7 @@ var harvest_amount = 0
 var health = 100
 var xp_amount # depends on rarity
 var rarity = "Common"
+var plant_type
 
 var xp_rarity = {
 	"Common" : 100,
@@ -30,6 +31,7 @@ var xp_rarity = {
 
 func _ready():
 	
+	plant_type = "Tree"
 	minimap.add_sprite(self)
 	
 	match(rarity):
@@ -37,6 +39,7 @@ func _ready():
 			common_tree.show()
 		"Uncommon":
 			uncommon_tree.show()
+			
 
 func _process(_delta):
 	
@@ -47,6 +50,7 @@ func _process(_delta):
 	
 	if harvest_amount >= 100:
 		# add xp to player based on tree rarity
+		minimap.remove_sprite(self)
 		player.add_xp(xp_rarity[rarity])
 		queue_free() # give experience to player, and remove
 
@@ -83,7 +87,11 @@ func shoot():
 		"Common":
 			projectile = APPLE.instantiate()
 			projectile.target = target
+			projectile.global_position = marker_2d.global_position # spawn apple projectile at top section of tree
+			marker_2d.add_child(projectile) # adding to actual scene
 		"Uncommon":
-			projectile = PINE_CONE.instantiate()
-	projectile.global_position = marker_2d.global_position # spawn apple projectile at top section of tree
-	marker_2d.add_child(projectile) # adding to actual scene
+			var rand_num = randi_range(0,1)
+			if rand_num == 1:
+				projectile = PINE_CONE.instantiate()
+				projectile.global_position = marker_2d.global_position
+				marker_2d.add_child(projectile) 

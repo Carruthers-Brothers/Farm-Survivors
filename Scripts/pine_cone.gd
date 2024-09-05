@@ -23,11 +23,13 @@ func self_destruct():
 	if num <= 10: # drop chance
 		create_seed("Uncommon")
 
+
 func create_seed(seed_type):
 	var seed = SEED.instantiate()
 	seed.global_position = global_position
-	game.add_child(seed)
 	seed.set_type(seed_type)
+	game.add_child(seed)
+	
 
 
 func _on_animated_sprite_2d_animation_finished():

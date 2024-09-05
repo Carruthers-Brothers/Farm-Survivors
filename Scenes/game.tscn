@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://de16yrwxesj6o"]
+[gd_scene load_steps=16 format=3 uid="uid://de16yrwxesj6o"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_wpwt0"]
 [ext_resource type="PackedScene" uid="uid://bd8lgm0cmd25g" path="res://Scenes/enemy_spawner.tscn" id="2_al4gj"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cdvfuu1hpjn3b" path="res://Scenes/Enemies/bunny.tscn" id="4_05vr8"]
 [ext_resource type="Texture2D" uid="uid://ci2ku4rauvga6" path="res://Assets/background.png" id="4_ejexm"]
 [ext_resource type="PackedScene" uid="uid://dko7aglao6gjw" path="res://Scenes/main_ui.tscn" id="4_lousv"]
-[ext_resource type="PackedScene" uid="uid://c78r1n408b1qa" path="res://Scenes/tree.tscn" id="5_sc2vd"]
 [ext_resource type="PackedScene" uid="uid://cocp6168xqrcb" path="res://Scenes/death_menu.tscn" id="5_t8sce"]
 [ext_resource type="PackedScene" uid="uid://c41g2o44k0bnb" path="res://Scenes/pause_menu.tscn" id="7_isgbb"]
 [ext_resource type="PackedScene" uid="uid://bbik38nrtmm07" path="res://Scenes/upgrade_menu.tscn" id="7_xxlaq"]
@@ -15,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://y7v240wsbor3" path="res://Scenes/pond.tscn" id="10_leke0"]
 [ext_resource type="PackedScene" uid="uid://d1cguchnehga6" path="res://Scenes/Enemies/beaver.tscn" id="13_ydtx4"]
 [ext_resource type="PackedScene" uid="uid://c02srhqbuabys" path="res://Scenes/well.tscn" id="14_7qud0"]
-[ext_resource type="PackedScene" uid="uid://bv266hw3fuh6l" path="res://Scenes/seed.tscn" id="15_vh6ft"]
+[ext_resource type="AudioStream" uid="uid://d2b117c1kipem" path="res://Assets/Sounds/johnny_towerseed_loop_mixdown.mp3" id="15_hbwhv"]
 
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_wpwt0")
@@ -24,9 +23,6 @@ script = ExtResource("1_wpwt0")
 
 [node name="Player" parent="." instance=ExtResource("3_iflxp")]
 position = Vector2(2, -2)
-
-[node name="Tree" parent="." instance=ExtResource("5_sc2vd")]
-position = Vector2(9, -46)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 visible = false
@@ -84,11 +80,14 @@ autostart = true
 [node name="Well" parent="." instance=ExtResource("14_7qud0")]
 position = Vector2(-73, 0)
 
-[node name="Seed2" parent="." instance=ExtResource("15_vh6ft")]
-position = Vector2(38, -30)
-
 [node name="Beaver" parent="." instance=ExtResource("13_ydtx4")]
 position = Vector2(-214, 99)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_hbwhv")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="level_up" from="Player" to="." method="_on_player_level_up"]
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]

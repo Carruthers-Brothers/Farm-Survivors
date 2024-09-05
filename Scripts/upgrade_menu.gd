@@ -1,14 +1,14 @@
 extends Control
 
-@onready var upgrade_button_1 = $UpgradeButton1
-@onready var upgrade_button_2 = $UpgradeButton2
-@onready var upgrade_button_3 = $UpgradeButton3 # upgrade selection
-@onready var upgrade_title_1 = $UpgradeButton1/UpgradeTitle1
-@onready var upgrade_description_1 = $UpgradeButton1/UpgradeDescription1
-@onready var upgrade_title_2 = $UpgradeButton2/UpgradeTitle2
-@onready var upgrade_description_2 = $UpgradeButton2/UpgradeDescription2
-@onready var upgrade_title_3 = $UpgradeButton3/UpgradeTitle3
-@onready var upgrade_description_3 = $UpgradeButton3/UpgradeDescription3
+@onready var upgrade_button_1 = $VBoxContainer/HBoxContainer/TextureButton1
+@onready var upgrade_button_2 = $VBoxContainer/HBoxContainer2/TextureButton2
+@onready var upgrade_button_3 = $VBoxContainer/HBoxContainer3/TextureButton3 # upgrade selection
+@onready var upgrade_title_1 = $VBoxContainer/HBoxContainer/TextureButton1/UpgradeTitle1
+@onready var upgrade_description_1 = $VBoxContainer/HBoxContainer/TextureButton1/UpgradeDescription1
+@onready var upgrade_title_2 = $VBoxContainer/HBoxContainer2/TextureButton2/UpgradeTitle2
+@onready var upgrade_description_2 = $VBoxContainer/HBoxContainer2/TextureButton2/UpgradeDescription2
+@onready var upgrade_title_3 = $VBoxContainer/HBoxContainer3/TextureButton3/UpgradeTitle3
+@onready var upgrade_description_3 = $VBoxContainer/HBoxContainer3/TextureButton3/UpgradeDescription3
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var upgrade_menu = { 
 	0 : [upgrade_title_1, upgrade_description_1, upgrade_button_1],
@@ -62,6 +62,7 @@ func randomize_upgrades():
 				var upgrade_choice = all_upgrades.keys().pick_random()
 				var upgrade = all_upgrades[upgrade_choice] # remove / transfer over to upgrade_options so you don't pick one twice
 				upgrade_menu[i][0].text = upgrade.upgrade_name + " Lvl. " + str(upgrade.level + 1) # Set title / name text
+				print("upgrade menu says ", upgrade_menu[i][0].text)
 				upgrade_menu[i][1].text = upgrade.description # Set description text
 				upgrade_menu[i][2].show()
 				upgrade_options.append(upgrade) # gets random key from all keys in dict, then grabs upgrade
@@ -69,18 +70,6 @@ func randomize_upgrades():
 			else:
 				# hide other options if maxed out on upgrades
 				upgrade_menu[i][2].hide()
-
-
-func _on_upgrade_button_1_pressed(): # apply upgrade to player, then hide upgrade screen
-	upgrade_pressed(0)
-
-
-func _on_upgrade_button_2_pressed():
-	upgrade_pressed(1)
-
-
-func _on_upgrade_button_3_pressed():
-	upgrade_pressed(2)
 
 
 # will take the upgrade object, then just apply_upgrade() to player
@@ -101,3 +90,15 @@ func upgrade_pressed(num):
 	
 	hide()
 	get_tree().paused = false
+
+
+func _on_texture_button_1_pressed():
+	upgrade_pressed(0)
+
+
+func _on_texture_button_2_pressed():
+	upgrade_pressed(1)
+
+
+func _on_texture_button_3_pressed():
+	upgrade_pressed(2)

@@ -7,7 +7,6 @@ var distance_traveled = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	print(distance_to_travel)
 	if distance_traveled > distance_to_travel:
 		reach_destination()
 		return

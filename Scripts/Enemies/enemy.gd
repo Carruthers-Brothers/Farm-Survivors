@@ -32,8 +32,10 @@ func take_damage(damage):
 	if health <= 0:
 		# drops a pickup-able seed sometimes
 		var num = randf_range(1,100)
-		if num <= 15:
+		if num <= 10: # 10% common
 			create_seed("Common")
+		elif num <= 15: # 5% uncommon
+			create_seed("Uncommon")
 		queue_free()
 		
 func getTarget():

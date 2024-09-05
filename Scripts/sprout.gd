@@ -13,11 +13,13 @@ var water_needed = 25
 var water_amount = 0.0
 var time = 5
 var rarity
+var plant_type
 
 const SMALL_TREE = preload("res://Scenes/small_tree.tscn")
 
 
 func _ready():
+	plant_type = "Sprout"
 	minimap.add_sprite(self)
 
 

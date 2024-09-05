@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccnvq6clt55o6"]
 
-[ext_resource type="Script" path="res://Scenes/victory_menu.gd" id="1_3k0il"]
+[ext_resource type="Script" path="res://Scripts/victory_menu.gd" id="1_3k0il"]
 [ext_resource type="FontFile" uid="uid://cntfe2rstcmj0" path="res://Assets/Fonts/PermanentMarker-Regular.ttf" id="2_j5bo1"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_b2hb8"]
